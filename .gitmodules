@@ -1,0 +1,4 @@
+[submodule "mathbugs.com/public"]
+	path = mathbugs.com/public
+	url = https://github.com/st3inum/st3inum.github.io.git
+	branch = main
