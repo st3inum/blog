@@ -21,12 +21,12 @@ int ssod(int n) {
 	} return s;
 }
 
-int query(int n){
-	int x=ssod(n);
-	if(n>0){
-		x=(1LL*x-sum(1,n)-(n-1))%mod;
-		if(x<0)x+=mod;
-	}return x;
+int query(int n) {
+	int x = ssod(n);
+	if (n > 0) {
+		x = (1LL * x - sum(1, n) - (n - 1)) % mod;
+		if (x < 0)x += mod;
+	} return x;
 }
 int f[mx];
 int32_t main() {

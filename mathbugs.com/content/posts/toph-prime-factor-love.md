@@ -4,9 +4,48 @@ date = "2021-04-22T02:31:20+06:00"
 author = ""
 authorTwitter = "" #do not include @
 cover = ""
-tags = ["sieve", "harmonic lemma" , "number theory"]
+tags = ["sieve", "harmonic lemma" , "number theory", "toph"]
 keywords = ["", ""]
-description = ""
+description = "Find sum of sum-of-divisor from 1 to n"
 showFullContent = false
+katex = true
 +++
 
+## Problem Description:
+- $mod = 1000009$
+- $[p]$ is $1$ if $p$ true , else $0$
+- $f(n) = \sum_{i=2}^{n-1}{[i|n]i}$
+- $S(n) = \sum_{i=1}^{n}{f(i)}$ for a given n
+- You need to find , sum of all prime factor of S(n)%mod
+
+## Inside Math:
+
+- We know , $\sigma_1(n) = \sum_{i=1}^{n}{[i|n]i}$
+- $sum(n) = \sum_{i=1}^{n}{i}$
+- $sum(l,r) = \sum_{i=l}^{r}{i}$
+- Let assume , $ssod(n) = \sum_{i=1}^{n}{\sigma_1(i)}$ , ssod = sum of sum-of-divisor 
+- We can represent $S(n) = ssod(n) - sum(n) - n + [n>=1]$
+
+Now , if we can find $ssod(n)$ faster, we can solve the problem.
+
+$\Longrightarrow ssod(n) = \sum_{i=1}^{n}{\sigma_1(i)}$
+
+$\Longrightarrow ssod(n) = \sum_{i=1}^{n}{\sum_{j=1}^{i}{[j|i]j}}$
+
+$\Longrightarrow ssod(n) = \sum_{i=1}^{n}{\sum_{j=1}^{n}{[j|i]j}}$
+
+$\Longrightarrow ssod(n) = \sum_{i=j}^{n}{j \times \sum_{i=1}^{n}{[j|i]}}$
+
+$\Longrightarrow ssod(n) = \sum_{i=j}^{n}{j \times \lfloor \frac{n}{j} \rfloor}$
+
+Now there, might be $O(\sqrt(n))$ different values for $\lfloor \frac{n}{j} \rfloor$ [This is also known as Harmonic lemma]. We will iterate over all such values of $\lfloor \frac{n}{j} \rfloor$ , and sum up there contribution. Thus we can calculate values for $ssod(n)$ in $O(\sqrt(n))$ and then for $S(n)$.
+
+For the second part , we will maintain a sieve for values $[0,mod)$ and precalculate sum of prime factor of all the number in the range.
+
+
+{{< code language="cpp" title="" id="1" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/toph/prime-factor-love.cpp">}}{{< /code >}}
+
+## Reference:
+
+- [Toph - Prime Factor Love](https://toph.co/p/prime-factor-love)
+- [Harmonic Lemma](https://codeforces.com/blog/entry/53925)
