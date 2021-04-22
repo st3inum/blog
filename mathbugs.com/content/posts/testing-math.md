@@ -1,12 +1,12 @@
 +++
 title = "Testing Math"
 date = "2021-04-21T03:53:08+06:00"
-author = ""
+author = "steinum"
 authorTwitter = "" #do not include @
 cover = ""
 tags = ["", ""]
 keywords = ["", ""]
-description = ""
+description = "Only for testing"
 showFullContent = false
 katex = true
 +++
@@ -14,6 +14,11 @@ $$x^5$$
 hello world
 
 The following
+
+$f(n) = \begin{cases} n/2,   \text{if $n$ is even} \newline 3n+1,  \text{if $n$ is odd} \end{cases}$
+
+$\widetilde{d_t} = \begin{cases} d_t & if d_{t+1} \leq \dfrac{B}{2}\newline d_t+1 & if d_{t+1} > \dfrac{B}{2} \end{cases}$
+
 
 $$\int_{a}^{b} x^2 dx$$
 
