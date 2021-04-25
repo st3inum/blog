@@ -1,13 +1,13 @@
 +++
 title = "Toph Complex Tashreef"
 date = "2021-04-26T01:06:15+06:00"
-author = ""
+author = "steinum"
 authorTwitter = "" #do not include @
 cover = ""
 tags = ["digit dp", "number theory", "lucas theorem" , "divide and conquer" , "toph"]
 keywords = ["", ""]
-description = ""
-showFullContent = true
+description = "Calculate the value for a function"
+showFullContent = false
 katex = true
 +++
 
@@ -51,6 +51,8 @@ Again , for any number $x$ , if $i$ is maximum number such that $2^{i}-1 < x$ , 
 
 To avoid **TLE** precalculate all values of $S(2^{i} - 1)$ and return them in function $S(n)$ directly.
 
-<!-- https://brilliant.org/wiki/lucas-theorem/ -->
-<!-- http://oeis.org/A001316 -->
-<!-- https://toph.co/p/complex-tashreef -->
+## Reference:
+
+- [Lucas's Theorem](https://brilliant.org/wiki/lucas-theorem/)
+- [OEIS A001316](http://oeis.org/A001316)
+- [Complex Tashreef - Intra AUST Programming Contest, Spring 2020](https://toph.co/p/complex-tashreef)

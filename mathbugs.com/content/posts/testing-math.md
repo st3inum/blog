@@ -9,6 +9,7 @@ keywords = ["", ""]
 description = "Only for testing"
 showFullContent = false
 katex = true
+draft = true
 +++
 $$x^5$$
 hello world
