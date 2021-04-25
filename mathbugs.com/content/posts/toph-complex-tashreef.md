@@ -12,17 +12,17 @@ katex = true
 +++
 
 ## Statement:
-In this problem you are asked to calculate : $\sum_{i=L}^{R}{\sum_{j=0}^{i}{[\binom{i}{j} \text{ (mod 2)}] \equiv 0}}$ , for given $L$ and $R$.
+In this problem you are asked to calculate : $\sum_{i=L}^{R}{\sum_{j=0}^{i}{[\binom{i}{j} \text{ (mod 2)} \equiv 0]}}$ , for given $L$ and $R$.
 
 ## Inside Math:
-From the lucas's theorem we can state that, $\sum_{j=0}^{i}{[\binom{i}{j} \text{ (mod 2)}] \equiv 1} = 2^{f(i)}$ . [$f(i) = \text{ number of one in binary representation of } i$]
+From the lucas's theorem we can state that, $\sum_{j=0}^{i}{[\binom{i}{j} \text{ (mod 2)}\equiv 1]} = 2^{f(i)}$ . [$f(i) = \text{ number of one in binary representation of } i$]
 
 
-Suppose , $S(x) = \sum_{i=0}^{x}{\sum_{j=0}^{i}{[\binom{i}{j} \text{ (mod 2)}] \equiv 0}}$ . Hence , our answer will be $S(R)-S(L-1)$
+Suppose , $S(x) = \sum_{i=0}^{x}{\sum_{j=0}^{i}{[\binom{i}{j} \text{ (mod 2)} \equiv 0]}}$ . Hence , our answer will be $S(R)-S(L-1)$
 
 Now,
 \begin{align}
-S(x) & = \sum_{i=0}^{x}{\sum_{j=0}^{i}{[\binom{i}{j} \text{ (mod 2)}] \equiv 0}} \newline
+S(x) & = \sum_{i=0}^{x}{\sum_{j=0}^{i}{[\binom{i}{j} \text{ (mod 2)} \equiv 0]}} \newline
      & = \sum_{i=0}^{x}{(i+1) - 2^{f(i)}} \newline
      & = \sum_{i=0}^{x}{(i+1)} - \sum_{i=0}^{x}{2^{f(i)}} \newline
      & = \frac{(i+1)\times (i+2)}{2} - \sum_{i=0}^{x}{2^{f(i)}} \newline
