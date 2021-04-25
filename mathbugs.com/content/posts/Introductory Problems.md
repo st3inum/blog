@@ -1,5 +1,5 @@
 +++
-title = "Introductory Problems"
+title = "Modular Arithmetic: Introductory Problems"
 date = "2021-04-21T03:26:08+06:00"
 author = "steinum"
 cover = ""
