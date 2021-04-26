@@ -8,7 +8,6 @@ tags = ["dp", "timus"]
 keywords = ["", ""]
 description = "Basic Dp problem"
 showFullContent = false
-katex = true
 +++
 
 Maintain a function with current position(column) of the staircases($i$) , number of remaining block($r$) , number of block we have used for the last column($l$).

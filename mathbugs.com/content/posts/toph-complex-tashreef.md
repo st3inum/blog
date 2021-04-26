@@ -8,7 +8,6 @@ tags = ["digit dp", "number theory", "lucas theorem" , "divide and conquer" , "t
 keywords = ["", ""]
 description = ""
 showFullContent = false
-katex = true
 +++
 
 ## Statement:

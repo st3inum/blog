@@ -7,7 +7,6 @@ tags = ["discrete-math", "math"]
 keywords = ["", ""]
 description = "Basics of modular arithmetic"
 showFullContent = false
-katex = true
 +++
 মডুলার অ্যারিথমেটিক নিয়ে পড়ার আগে আমরা কিছু জিনিস রিক্যাপ করে নেই , যেগুলা আমরা ক্লাস ফাইভে পড়ে এসেছি । 
 

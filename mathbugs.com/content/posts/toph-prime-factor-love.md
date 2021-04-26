@@ -8,7 +8,6 @@ tags = ["sieve", "harmonic lemma" , "number theory", "toph"]
 keywords = ["", ""]
 description = "Find sum of sum-of-divisor from 1 to n"
 showFullContent = false
-katex = true
 +++
 
 ## Problem Description:
