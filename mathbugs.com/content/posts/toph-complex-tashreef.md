@@ -6,7 +6,7 @@ authorTwitter = "" #do not include @
 cover = ""
 tags = ["digit dp", "number theory", "lucas theorem" , "divide and conquer" , "toph"]
 keywords = ["", ""]
-description = "Calculate the value for a function"
+description = ""
 showFullContent = false
 katex = true
 +++
