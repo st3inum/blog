@@ -14,7 +14,7 @@ showFullContent = false
 In this problem you are asked to calculate : $\sum_{i=L}^{R}{\sum_{j=0}^{i}{[\binom{i}{j} \text{ (mod 2)} \equiv 0]}}$ , for given $L$ and $R$.
 
 ## Inside Math:
-From the lucas's theorem we can state that, $\sum_{j=0}^{i}{[\binom{i}{j} \text{ (mod 2)}\equiv 1]} = 2^{f(i)}$ . [$f(i) = \text{ number of one in binary representation of } i$]
+From the lucas' theorem we can state that, $\sum_{j=0}^{i}{[\binom{i}{j} \text{ (mod 2)}\equiv 1]} = 2^{f(i)}$ . [$f(i) = \text{ number of one in binary representation of } i$]
 
 
 Suppose , $S(x) = \sum_{i=0}^{x}{\sum_{j=0}^{i}{[\binom{i}{j} \text{ (mod 2)} \equiv 0]}}$ . Hence , our answer will be $S(R)-S(L-1)$
@@ -52,6 +52,6 @@ To avoid **TLE** precalculate all values of $S(2^{i} - 1)$ and return them in fu
 
 ## Reference:
 
-- [Lucas's Theorem](https://brilliant.org/wiki/lucas-theorem/)
+- [Lucas' Theorem](https://brilliant.org/wiki/lucas-theorem/)
 - [OEIS A001316](http://oeis.org/A001316)
 - [Complex Tashreef - Intra AUST Programming Contest, Spring 2020](https://toph.co/p/complex-tashreef)
