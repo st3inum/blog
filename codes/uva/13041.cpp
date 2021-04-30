@@ -19,6 +19,7 @@ int32_t main() {
 				ll x = max(ceil(4 * r, 9), ceil(5 * r - l, 11));
 				ll y = min(floor(l + 4 * r, 9), floor(5 * r, 11));
 				cnt += max(y - x + 1, 0LL);
+				cout<<cc<<' '<<r<<' '<<max(y - x + 1, 0LL)<<endl;
 			}
 		} cout << "Case " << tc++ << ": " << cnt << endl;
 	} return 0;
