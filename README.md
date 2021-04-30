@@ -9,4 +9,8 @@ git push origin  main
 
 ```
 
+```
+hugo -t terminal && cd public && git add . && git commit -m "codechef sandwich" && git push origin  main && cd ../
+```
+
 source : https://www.youtube.com/watch?v=LIFvgrRxdt4
