@@ -15,11 +15,7 @@ int ncr(long long n, long long r) {
 	if (n < r)return 0;
 	// if n<m we can directly find nCr from the precalculated factorial
 	if (n < m)return 1LL * f[n] * Pow(1LL * f[r] * f[n - r] % m, m - 2) % m;
-	int ans = 1;
-	while (n) {
-		ans = 1LL * ans * ncr(n % m, r % m) % m;
-		n /= m, r /= m;
-	} return ans;
+	return 1LL * ncr(n % m, r % m) * ncr(n / m, r / m) % m;
 }
 
 int32_t main() {
