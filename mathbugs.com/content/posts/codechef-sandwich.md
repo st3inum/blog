@@ -56,7 +56,10 @@ In this case we can calculate the value of ncr with lucas theorem.
 - $1\le n,k \le 10^{18}$
 - $2 \le m \le 10^{6}$
 
-<!-- For this subtask we have to prime factorize $m$. Then calculate answer for each prime power. And finally merge them up with `CRT`. -->
+{{< spoiler text="Hint" >}}
+Comming Soon...
+{{< /spoiler >}}
+
 {{< code language="cpp" title="Long Sandwich: subtask 4" id="4" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codechef/SANDWICH_4.cpp">}}{{< /code >}}
 
 
