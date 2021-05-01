@@ -41,8 +41,8 @@ int pow(ll a, ll b, int m) {
 int F[1000002] = {1}, p, e, pe;
 // return n! % p^e ignoring all occurrences of p
 int f(ll n) {
-	if (n <= 1)return 1;
-	return 1LL * pow(F[pe - 1] , n / pe , pe) * (1LL * F[n % pe] * f(n / p) % pe) % pe;
+	if (!n)return 1;
+	return 1LL * pow(F[pe] , n / pe , pe) * (1LL * F[n % pe] * f(n / p) % pe) % pe;
 }
 // return C(n,r) % p^e
 int ncr(ll n, ll r) {

@@ -4,7 +4,7 @@ date = "2021-04-30T22:03:31+06:00"
 author = "steinum"
 authorTwitter = "" #do not include @
 cover = ""
-tags = ["combinatorics", "crt" , "lucas theorem" , "number theory" ,"wilson's theorem" ,"codechef"]
+tags = ["combinatorics", "crt" , "lucas theorem" , "number theory" ,"legendre's formula" ,"counting" ,"codechef"]
 keywords = ["", ""]
 description = ""
 showFullContent = false
@@ -47,7 +47,7 @@ We can directly calculate our solution with dp.
 - $1\le n,k \le 10^{18}$
 - $2 \le m \le 10^{6}$ and $m$ is a prime number.
 
-In this case we can calculate the value of ncr with lucas theorem.
+In this case we can calculate the value of $\binom{n}{r}$ with lucas theorem.
 
 {{< code language="cpp" title="Long Sandwich: subtask 3" id="3" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codechef/SANDWICH_3.cpp">}}{{< /code >}}
 
@@ -56,9 +56,26 @@ In this case we can calculate the value of ncr with lucas theorem.
 - $1\le n,k \le 10^{18}$
 - $2 \le m \le 10^{6}$
 
-{{< spoiler text="Hint" >}}
-Comming Soon...
-{{< /spoiler >}}
+In this case, at first, we will calculate $\binom{n}{r}$ modulo prime power. Then merge them up with `CRT` and get the value of $\binom{n}{r}$ modulo an arbitrary number.
+
+To calculate $\binom{n}{r}$ (mod $p^{k}$) [$p$ is a prime number and $k>0$], we will calculate $n!$ (mod $p^{k}$) , but ignoring all occurrences of $p$.
+
+Now let's define some function/variables.
+
+- $F_{n} = \prod_{i = 1 , p\nmid i}^{n}{i}$ (mod $p^{k}$)
+- $L(n) = $ max $k$ such that $p^k \mid n!$ [with Legendre's Formula]
+- $f(n)$ = $\frac{n!}{p^{L(n)}}$ (mod $p^{k}$)
+
+### Calculate $L(n)$:
+$L(n) = \sum_{i=1}^{\infty}{\lfloor \frac{n}{p^{i}} \rfloor}$ [known as Legendre's Formula]
+
+### Calculate $f(n)$:
+$ f(n) = \begin{cases} 1 \text{ , if $n=0$} \newline F_{p^{e}}^{\lfloor \frac{n}{p^e} \rfloor} \times F_{n \text{ (mod $p^e$)}} \times f(\lfloor \frac{n}{p} \rfloor) \text{ , if $n \neq 0$} \end{cases}$
+
+### Calculate $\binom{n}{r}$:
+$\binom{n}{r} = \frac{f(n)}{f(r)\times f(n-r)} \times p^{L(n)-L(r)-L(n-r)}$
+
+Now, the remaining part is to merge all answer from $p^k$ [$p^k\mid m$ and $p^{k+1}\nmid m$] with `CRT` .
 
 {{< code language="cpp" title="Long Sandwich: subtask 4" id="4" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codechef/SANDWICH_4.cpp">}}{{< /code >}}
 
@@ -70,4 +87,5 @@ Comming Soon...
 - [Stars and Bars Theorem](https://forthright48.com/stars-and-bars-theorem)
 - [CRT - Chinese Remainder Theorem](https://forthright48.com/chinese-remainder-theorem-part-1-coprime-moduli/)
 - [Lucas' Theorem](https://brilliant.org/wiki/lucas-theorem/)
-- [Wilson's theorem](https://en.wikipedia.org/wiki/Wilson%27s_theorem)
+- [Legendre's Formula](https://en.wikipedia.org/wiki/Legendre%27s_formula)
+- [Emaxx : Binomial Coefficients](https://cp-algorithms.com/combinatorics/binomial-coefficients.html)
