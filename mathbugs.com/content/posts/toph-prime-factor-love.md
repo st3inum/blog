@@ -52,7 +52,14 @@ For the second part , we will maintain a sieve for values $[0,mod)$ and precalcu
 
 {{< code language="cpp" title="" id="1" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/toph/prime-factor-love.cpp">}}{{< /code >}}
 
+
+## SPOJ - AFS2
+
+Pretty much same problem.
+{{< code language="cpp" title="AFS2" id="2" expand="Show" collapse="Hide" isCollapsed="true" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/spoj/AFS2.cpp">}}{{< /code >}}
+
 ## Reference:
 
 - [Toph - Prime Factor Love](https://toph.co/p/prime-factor-love)
+- [SPOJ - AFS2 - Amazing Factor Sequence (medium)](https://www.spoj.com/problems/AFS2/en/)
 - [Harmonic Lemma](https://codeforces.com/blog/entry/53925)

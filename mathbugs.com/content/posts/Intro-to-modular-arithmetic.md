@@ -1,6 +1,6 @@
 +++
 title = "Modular Arithmetic: Introduction"
-date = "2021-04-21T03:26:08+06:00"
+date = "2021-04-20T03:26:08+06:00"
 author = "steinum"
 cover = ""
 tags = ["discrete-math", "math"]

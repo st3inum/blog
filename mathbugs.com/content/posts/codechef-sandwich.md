@@ -79,7 +79,7 @@ Now, the remaining part is to merge all answer from $p^k$ [$p^k\mid m$ and $p^{k
 
 {{< code language="cpp" title="Long Sandwich: subtask 4" id="4" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codechef/SANDWICH_4.cpp">}}{{< /code >}}
 
-
+<!-- next implementation for big prime modulo, koosaga blog -->
 
 ## Reference:
 
