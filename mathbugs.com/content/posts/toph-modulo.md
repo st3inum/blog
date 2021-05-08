@@ -10,7 +10,14 @@ description = ""
 showFullContent = false
 +++
 
-You will be given an array, $A$ of length $n\le 10^{5}$ and $q\le 10^{5}$ queries. In each query you will be given a value $x \le 2^{60}$. You have to perform $A_{i} = A_{i} \text{ (mod $x$)} , 1 \le i \le n$ for each query , and after all the query print the array.
+You will be given an array, $A$ of length $n$ and $q$ queries. In each query you will be given a value $x$. You have to perform $A_{i} = A_{i} \text{ (mod $x$)} , 1 \le i \le n$ for each query , and after all the query print the array.
+
+{{< spoiler text="<b>Constraints</b>" >}}
+- $A_{i} \le 2^{60}$
+- $n\le 10^{5}$
+- $q\le 10^{5}$
+- $x \le 2^{60}$
+{{< /spoiler >}}
 
 ## Solution:
 When $A_{i} = A_{i} \text{ (mod $x$)}$ operation change $A_{i}$ ?
@@ -45,9 +52,9 @@ Now, $a'\le \frac{a}{2}$ [But why ?]
 
 Hence, one value, $A_{i}$,  will become a valid value atmost $log_{2}{(2^{60})} = 60$ times.
 
-Hence if we iterate over only the valid value , number of overall iteration will be $60\times q$.
+Hence if we iterate over only the valid value , number of overall iteration will be amortize $60\times n$.
 
-But as we are using `priority_queue` to maintain our array our total complexity will be $O(qlog(n)log(A_{max}))$
+But as we are using `priority_queue` to maintain our array our total complexity will be $O(nlog(n)log(A_{max}))$
 
 {{< code language="cpp" title="Modulo" id="1" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/toph/modulo.cpp">}}{{< /code >}}
 
