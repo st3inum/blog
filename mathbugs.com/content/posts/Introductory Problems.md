@@ -151,7 +151,7 @@ showFullContent = false
   
   $p,q$ যেহেতু $10^9$ পর্যন্ত হতে পারে , তাই এদের গুণফল $10^{18}$ পর্যন্ত হয়ে যেতে পারে । তাই এই ভ্যারিয়েবল গুলো `long long` টাইপের নিতে তবে ( অথবা `long long` এ টাইপকাস্ট করে নিতে হবে )
   {{< /spoiler >}}
-  {{< code language="cpp" title="Really cool snippet" id="1" expand="Show" collapse="Hide" isCollapsed="false">}}int main() {
+  {{< code language="cpp" title="" id="1" expand="Show" collapse="Hide" isCollapsed="false">}}int main() {
   long long p, q;
   int m;
   scanf("%lld %lld %d", &p, &q, &m);
@@ -167,7 +167,7 @@ showFullContent = false
   $p,q$ যেহেতু $10^{18}$ পর্যন্ত হতে পারে , তাই এটি আগের পদ্ধতিতে সল্ভ করা যাবে না , কাড়ন  এদের গুণফল $10^{36}$ পর্যন্ত হয়ে যেতে পারে এবং এই রেঞ্জের কোন ভ্যারিয়েবল c++ এ নাই।
   যদি $p\equiv a \text{ (mod m)}$ এবং $q\equiv b \text{ (mod m)}$ হয় , তাহলে আমরা বলতে পারি $pq\equiv ab \text{ (mod m)} \Longrightarrow pq\equiv \{(p\text{ (mod m)})\times(q\text{ (mod m)})\} \text{ (mod m)}$
   {{< /spoiler >}}
-  {{< code language="cpp" title="Really cool snippet" id="2" expand="Show" collapse="Hide" isCollapsed="false">}}int main() {
+  {{< code language="cpp" title="" id="2" expand="Show" collapse="Hide" isCollapsed="false">}}int main() {
   long long p, q;
   int m;
   scanf("%lld %lld %d", &p, &q, &m);

@@ -45,7 +45,7 @@ $\Longrightarrow ssod(n) = \sum_{i=j}^{n}{j \times \sum_{i=1}^{n}{[j|i]}}$
 
 $\Longrightarrow ssod(n) = \sum_{i=j}^{n}{j \times \lfloor \frac{n}{j} \rfloor}$
 
-Now there, might be $O(\sqrt{n})$ different values for $\lfloor \frac{n}{j} \rfloor$ [This is also known as Harmonic lemma]. We will iterate over all such values of $\lfloor \frac{n}{j} \rfloor$ , and sum up there contribution. Thus we can calculate values for $ssod(n)$ in $O(\sqrt{n})$ and then for $S(n)$.
+Now there, might be $O(\sqrt{n})$ different values for $\lfloor \frac{n}{j} \rfloor$ [This is also known as [Harmonic lemma](https://st3inum.github.io/posts/uva-11526/)]. We will iterate over all such values of $\lfloor \frac{n}{j} \rfloor$ , and sum up there contribution. Thus we can calculate values for $ssod(n)$ in $O(\sqrt{n})$ and then for $S(n)$.
 
 For the second part , we will maintain a sieve for values $[0,mod)$ and precalculate sum of prime factor of all the number in the range.
 
