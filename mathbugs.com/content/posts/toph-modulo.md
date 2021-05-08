@@ -43,6 +43,12 @@ Now, $a'\le \frac{a}{2}$ [But why ?]
 
 	- $\therefore a'=a-x$ or $a'\le\frac{a}{2}$
 
+Hence, one value, $A_{i}$,  will become a valid value atmost $log_{2}{(2^{60})} = 60$ times.
+
+Hence if we iterate over only the valid value , number of overall iteration will be $60\times q$.
+
+But as we are using `priority_queue` to maintain our array our total complexity will be $O(qlog(n)log(A_{max}))$
+
 {{< code language="cpp" title="Modulo" id="1" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/toph/modulo.cpp">}}{{< /code >}}
 
 ## Reference:
