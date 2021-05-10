@@ -45,7 +45,7 @@ cout << ans << '\n';
 {{< /code >}}
 
 
-## Problem 1 - Codeforces 1520 D(Same Differences) :
+## Problem 1 - Codeforces 1520 D([Same Differences](https://codeforces.com/contest/1520/problem/D)) :
 
 >You are given an array $a$ of $n$ integers. Count the number of pairs of indices $(i,j)$ such that $i<j$ and $a_j−a_i=j−i$.
 
@@ -56,8 +56,45 @@ a_j - a_i &= j-i\newline
 a_j - j &= a_i - i
 \end{align}
 
-Now, if we compare this with our first task, then $B_j=a_j-j$ and $A_i = a_i - i$
+Now, if we compare this with our second task, then $B_j=a_j-j$ and $A_i = a_i - i$
 
 Hence our solution will be:
 
 {{< code language="cpp" title="Primes or Palindromes?" id="1" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codeforces/1520d.cpp">}}{{< /code >}}
+
+## Problem 2 - Toph ([Adorable String <3](https://toph.co/p/adorable-string-3))
+
+> Let’s call a string adorable if its number of consonant(s) is 1 more then its number of vowel(s).\
+>\
+>Find the number of adorable substring of a given string
+
+Suppose the given string is a $n$ length string , $s$[1 based indexing].
+
+Let's define some function.
+- $s[l,r] = \text{ substring of $s$ from $l$ to $r$ index(both inclusive)}$
+
+- $V(i) = \text{ number of vowel in $s[1,i]$}$
+
+- $C(i) = \text{ number of consonant in $s[1,i]$}$
+
+- $V(l,r) = V(r)-V(l-1) = \text{ number of vowel in $s[l,r]$}$
+
+- $C(l,r) = C(r)-C(l-1) = \text{ number of consonant in $s[l,r]$}$
+
+Hence, we can get these equations for $s[l+1,r]$:
+
+- $V(l+1,r) + C(l+1,r) = r-l$ [total length of s[l+1,r] equal to number of vowel + number of consonant]
+
+- $V(l+1,r) +1 = C(l+1,r)$ [if $s[l+1,r]$ is adorable]
+
+Solving the both equation we can get:
+\begin{align}
+2V(l+1,r) +1 &=r-l\newline
+2(V(r)-V(l))+1 &= r-l\newline
+2V(r)-2V(l)+1 &=r-l\newline
+2V(r)-r+1&=2V(l)-l 
+\end{align}
+
+Now if we convert this problem in our second task, $B_{r} = 2V(r)-r+1$ and $A_{l}=2V(l)-l$ and $A_{0} = 0$
+
+Hence, our code will be :
