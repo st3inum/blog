@@ -60,7 +60,7 @@ Now, if we compare this with our second task, then $B_j=a_j-j$ and $A_i = a_i - 
 
 Hence our solution will be:
 
-{{< code language="cpp" title="Primes or Palindromes?" id="1" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codeforces/1520d.cpp">}}{{< /code >}}
+{{< code language="cpp" title="Same Differences" id="3" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codeforces/1520d.cpp">}}{{< /code >}}
 
 ## Problem 2 - Toph ([Adorable String <3](https://toph.co/p/adorable-string-3))
 
@@ -98,3 +98,16 @@ Solving the both equation we can get:
 Now if we convert this problem in our second task, $B_{r} = 2V(r)-r+1$ and $A_{l}=2V(l)-l$ and $A_{0} = 0$
 
 Hence, our code will be :
+
+{{< code language="cpp" title="Adorable String <3" id="4" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/toph/adorable-string-3.cpp">}}{{< /code >}}
+
+
+## Reference:
+
+- [Toph - Adorable String <3](https://toph.co/p/adorable-string-3)
+
+- [Codeforces - Same Differences](https://codeforces.com/contest/1520/problem/D)
+
+## Similar Problem:
+
+- [Smiley Faces (C) - 2017 PSUT Coding Marathon](https://codeforces.com/gym/101401/problem/C) [**Hard**]
