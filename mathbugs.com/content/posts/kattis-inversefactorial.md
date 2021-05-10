@@ -22,7 +22,7 @@ number of digit in $x$ is atmost $10^{6}$
 
 At first this problem seems too hard.
 
-Suppose, we have a function $H(p)$ which return some small integer value. And $H(p)\neq H(q)$ if $p\neq q$.
+Suppose, we have a function $H(p)$ which return some small integer value for corresponding $p$. And $H(p)\neq H(q)$ if $p\neq q$.
 
 Hence, we can uniquely represent every $p$ by $H(p)$.
 
@@ -37,10 +37,10 @@ We can take prime number as the value of $m$. It will be good.
 {{< /spoiler >}}
 
 
-Now, calculate $y = x \text{ (mod m)}$.
+Now, calculate $y = H(x) = x \text{ (mod m)}$.
 
 
-Again, calculate $n! \text{ (mod m)}$ , for all $n \in [0,10^{6}]$. And check, if it matches with $y$.
+Again, calculate $H(n!) = n! \text{ (mod m)}$ , for all $n \in [0,10^{6}]$. And check, if it matches with $y$.
 
 Hence we can find $f^{-1}{(x)}$.
 
