@@ -1,11 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-
 const int mx = 1e5 + 5;
 int a[mx], n, k;
-
 int32_t main() {
 	ios_base::sync_with_stdio(0); cin.tie(0);
 
@@ -19,8 +16,7 @@ int32_t main() {
 	}
 	int ma = 0;
 	for (int l = 0; l < n; l++) {
-		for (int r = l, v = 1; r < n && v <= k / a[r]; r++) {
-			v *= a[r];
+		for (int r = l, v = 1; r < n && v <= k / a[r]; v *= a[r], r++) {
 			ma = max(ma, r - l + 1);
 		}
 	}
