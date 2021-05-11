@@ -14,7 +14,9 @@ showFullContent = false
 
 > You are given two array $A$ and $B$ of length $n$.\
 >\
-> For each $i$ ($0\le i \le n-1$) print $\sum_{j=0}^{i-1}{[A_{j}=B_{i}]}$
+> For each $i$ ($0\le i \le n-1$) print $\sum_{j=0}^{i-1}{[A_{j}=B_{i}]}$\
+>\
+> In other words, for each $i$($0\le i \le n-1$) print number of index $j$(j<i) where $B_i=A_j$
 
 {{< spoiler text="<b>Constraints</b>" >}}
 - $1\le n \le 10^{5}$
@@ -32,7 +34,9 @@ for (int j = 0; j < n; j++) {
 
 ## Prerequisite Task 2:
 
-> Same problem, just find $\sum_{i=0}^{n-1}{\sum_{j=0}^{i-1}{[A_{j}=B_{i}]}}$
+> Same problem, just find $\sum_{i=0}^{n-1}{\sum_{j=0}^{i-1}{[A_{j}=B_{i}]}}$\
+>\
+> In other words, number of pair $(i,j)$ where $i<j$ and $B_i=A_j$
 
 {{< code language="cpp" title="" id="2" expand="Show" collapse="Hide" isCollapsed="false">}}
 long long ans = 0;
