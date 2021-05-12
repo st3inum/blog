@@ -10,12 +10,13 @@ int32_t main() {
 		int n; string s; cin >> n >> s;
 
 		long long ans = 0;
-		unordered_map<int, int> cnt; cnt[0] = 1;
-		for (int i = 1, V = 0; i <= n; i++) {
-			V += isvowel(s[i - 1]);
-			int A = 2 * V - i, B = 2 * V - i + 1;
-			ans += cnt[B];
-			cnt[A]++;
+		unordered_map<int, int> cnt;
+		int la = 0, ra = n - 1, lb = 1, rb = n;
+		for (int j = min(la, lb), V = 0; j <= rb; j++) {
+			if (j - 1 >= 0)V += isvowel(s[j - 1]);
+			int A = 2 * V - j, B = 2 * V - j + 1;
+			if (lb <= j && j <= rb)ans += cnt[B];
+			if (la <= j && j <= ra)cnt[A]++;
 		}
 		cout << ans << '\n';
 	}

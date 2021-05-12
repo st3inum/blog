@@ -14,9 +14,9 @@ showFullContent = false
 
 > You are given two array $A$ and $B$ of length $n$.\
 >\
-> For each $i$ ($0\le i \le n-1$) print $\sum_{j=0}^{i-1}{[A_{j}=B_{i}]}$\
+> For each $j$ ($0\le j \le n-1$) print $\sum_{i=0}^{j-1}{[A_{i}=B_{j}]}$\
 >\
-> In other words, for each $i$($0\le i \le n-1$) print number of index $j$(j<i) where $B_i=A_j$
+> In other words, for each $j$($0\le j \le n-1$) print number of index $i$(i<j) where $B_j=A_i$
 
 {{< spoiler text="<b>Constraints</b>" >}}
 - $1\le n \le 10^{5}$
@@ -34,9 +34,9 @@ for (int j = 0; j < n; j++) {
 
 ## Prerequisite Task 2:
 
-> Same problem, just find $\sum_{i=0}^{n-1}{\sum_{j=0}^{i-1}{[A_{j}=B_{i}]}}$\
+> Same as `task 1`, just find $\sum_{j=0}^{n-1}{\sum_{i=0}^{j-1}{[A_{i}=B_{j}]}}$\
 >\
-> In other words, number of pair $(i,j)$ where $i<j$ and $B_i=A_j$
+> In other words, number of pair $(i,j)$ where $i<j$ and $B_j=A_i$
 
 {{< code language="cpp" title="" id="2" expand="Show" collapse="Hide" isCollapsed="false">}}
 long long ans = 0;
@@ -44,6 +44,22 @@ map<int, int> cnt;
 for (int j = 0; j < n; j++) {
 	ans += cnt[B[j]];
 	cnt[A[j]]++;
+}
+cout << ans << '\n';
+{{< /code >}}
+
+## Prerequisite Task 3:
+
+> Same as `task 2`, just find $\sum_{j=l_B}^{r_B}{\sum_{i=l_A}^{r_A}{[A_{i}=B_{j}][i<j]}}$\
+>\
+> In other words, number of pair $(i,j)$ where $i<j$ , $i\in [l_A,r_A]$ and $j\in [l_B,r_B]$ and $B_j=A_i$
+
+{{< code language="cpp" title="" id="3" expand="Show" collapse="Hide" isCollapsed="false">}}
+long long ans = 0;
+map<int, int> cnt;
+for (int j = min(la, lb); j <= rb; j++) {
+    if (lb <= j && j <= rb)ans += cnt[B[j]];
+    if (la <= j && j <= ra)cnt[A[j]]++;
 }
 cout << ans << '\n';
 {{< /code >}}
@@ -60,11 +76,11 @@ a_j - a_i &= j-i\newline
 a_j - j &= a_i - i
 \end{align}
 
-Now, if we compare this with our second task, then $B_j=a_j-j$ and $A_i = a_i - i$
+Now, if we compare this with our `task 2`, then $B_j=a_j-j$ and $A_i = a_i - i$
 
 Hence our solution will be:
 
-{{< code language="cpp" title="Same Differences" id="3" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codeforces/1520d.cpp">}}{{< /code >}}
+{{< code language="cpp" title="Same Differences" id="4" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codeforces/1520d.cpp">}}{{< /code >}}
 
 ## Problem 2 - Toph ([Adorable String <3](https://toph.co/p/adorable-string-3))
 
@@ -99,11 +115,11 @@ Solving the both equation we can get:
 2V(r)-r+1&=2V(l)-l 
 \end{align}
 
-Now if we convert this problem in our second task, $B_{r} = 2V(r)-r+1$ and $A_{l}=2V(l)-l$ and $A_{0} = 0$
+Now if we convert this problem in our `task 3`, $B_{r} = 2V(r)-r+1$ and $A_{l}=2V(l)-l$ and $A_{0} = 0$ here $l \in [0,n-1]$ and $r \in [1,n]$
 
 Hence, our code will be :
 
-{{< code language="cpp" title="Adorable String <3" id="4" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/toph/adorable-string-3.cpp">}}{{< /code >}}
+{{< code language="cpp" title="Adorable String <3" id="5" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/toph/adorable-string-3.cpp">}}{{< /code >}}
 
 
 ## Reference:
