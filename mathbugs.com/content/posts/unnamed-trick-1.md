@@ -130,4 +130,18 @@ Hence, our code will be :
 
 ## Similar Problem:
 
+- [Codeforces - Good Subarrays - 1398C](https://codeforces.com/contest/1398/problem/C)
+
+- [Codeforces - Rock and Lever - 1420 B](https://codeforces.com/contest/1420/problem/B)
+
+- [Codeforces - Sasha and a Bit of Relax - 1109 A](https://codeforces.com/contest/1109/problem/A)
+
+- [Codeforces - Count Pairs - 1188B](https://codeforces.com/contest/1188/problem/B)
+
+- [Toph - Not Bad Array - BSMRSTU Home Quarantine Contest - 3](https://toph.co/p/not-bad-array)
+
+- [Toph - Divisible by 3 - BSMRSTU Home Quarantine Contest - 6](https://toph.co/p/divisible-by-3)
+
+- [AtCoder - DNA Sequence](https://atcoder.jp/contests/arc104/tasks/arc104_b?lang=en)
+
 - [Smiley Faces (C) - 2017 PSUT Coding Marathon](https://codeforces.com/gym/101401/problem/C) [**Hard**]

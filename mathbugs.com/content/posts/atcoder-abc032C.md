@@ -12,9 +12,7 @@ showFullContent = false
 
 > Given an array $S$ of length $n$ and an integer $k$.\
 >\
-> $\prod_{i=l}^{r}{S_{i}} \le k$\
->\
-> Find maximum value of $(r-l+1)$
+> Find maximum value of $(r-l+1)$ such that $\prod_{i=l}^{r}{S_{i}} \le k$
 
 {{< spoiler text="<b>Constraints</b>" >}}
 - $1\le n \le 10^{5}$
