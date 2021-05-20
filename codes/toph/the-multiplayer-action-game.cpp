@@ -7,15 +7,20 @@ using namespace std;
 
 const ld eps = 1e-9;
 const ld lim = 1e5;
+
+// sign(x) return 0 if x == 0 , 1 if x > 0 , -1 if x < 0
 inline int sign(ld x) {return (x > eps) - (x < -eps);}
 inline int sign(__int128 x) {return (x > 0) - (x < 0);}
 inline int sign(long long x) {return (x > 0) - (x < 0);}
+
 #define point vector<ll>
+
 point operator - (point a, point b) {
 	point c = a;
 	for (int i = 0, n = a.size(); i < n; i++)c[i] -= b[i];
 	return c;
 }
+// vector dot product
 ll operator | (point a, point b) {
 	ll s = 0;
 	for (int i = 0, n = a.size(); i < n; i++)s += a[i] * b[i];

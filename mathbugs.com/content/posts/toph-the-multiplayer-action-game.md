@@ -70,7 +70,7 @@ b &=  2\times |C|.|V|\newline
 
 Again, we can rewrite the equation as $ax^2+bx+c\le 0$ and we need to find the smallest such $x$.
 
-We can use `ternary search`. Alternatively, we can just solve the equation and find the minimum such $x$.
+We can use `ternary search`. Alternatively, we can just solve the equation(as [quadratic equation](https://st3inum.github.io/posts/toph-the-multiplayer-action-game/)) and find the minimum such $x$.
 
 **We must handle some cases, like $R1=R2$ or $a=0$**
 
