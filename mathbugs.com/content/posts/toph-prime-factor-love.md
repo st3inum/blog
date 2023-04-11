@@ -63,3 +63,7 @@ Pretty much same problem.
 - [Toph - Prime Factor Love](https://toph.co/p/prime-factor-love)
 - [SPOJ - AFS2 - Amazing Factor Sequence (medium)](https://www.spoj.com/problems/AFS2/en/)
 - [Harmonic Lemma](https://codeforces.com/blog/entry/53925)
+
+## Similar Problems:
+
+- [LightOJ - A New Function](https://lightoj.com/problem/a-new-function)

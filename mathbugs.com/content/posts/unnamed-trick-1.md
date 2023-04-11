@@ -138,10 +138,24 @@ Hence, our code will be :
 
 - [Codeforces - Count Pairs - 1188B](https://codeforces.com/contest/1188/problem/B)
 
+- [Codeforces - Three Parts of the Array - 1006C](https://codeforces.com/contest/1006/problem/C)
+
 - [Toph - Not Bad Array - BSMRSTU Home Quarantine Contest - 3](https://toph.co/p/not-bad-array)
 
 - [Toph - Divisible by 3 - BSMRSTU Home Quarantine Contest - 6](https://toph.co/p/divisible-by-3)
 
+
 - [AtCoder - DNA Sequence](https://atcoder.jp/contests/arc104/tasks/arc104_b?lang=en)
 
+- [BDOSN - Zero Ways](http://oj.bdosn.org/contest/11/problem/A)
+
+- [Divisible by 3 - SEERC 2020](https://codeforces.com/gym/103102/problem/E)
+
 - [Smiley Faces (C) - 2017 PSUT Coding Marathon](https://codeforces.com/gym/101401/problem/C) [**Hard**]
+
+
+<!-- https://vjudge.net/contest/380967#problem/F -->
+<!-- http://oj.bdosn.org/contest/11/problem/A -->
+<!-- https://codeforces.com/contest/1541/problem/B -->
+<!-- maximum sum subarray -->
+<!-- https://leetcode.com/problems/subarray-sum-equals-k/ -->

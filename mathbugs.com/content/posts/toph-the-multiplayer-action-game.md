@@ -19,20 +19,24 @@ showFullContent = false
 > **If it is impossible/minimum time is greater than 100000, then print `-1`**.
 
 {{< spoiler text="<b>Constraints</b>" >}}
+*****
 - There will be atmost $10^{5}$ testcases.
 
 - $2\le n \le 10$.
 
 - All other integers will be in range $[1,10^{4}]$.
+*****
 {{< /spoiler >}}
 
 ## Inside Math:
 
 If `n=2`, when the smaller n-sphere will be fully inside of the bigger one?
 {{< spoiler text="<b>Answer</b>" >}}
+*****
 if $\text{distance}(C1,C2)\le |R1-R2|$
 
 In other words, $|C1-C2| \le |R1-R2|$ Considering $C1$ and $C2$ as vectors.
+*****
 {{< /spoiler >}}
 
 In the case of n-dimension, the answer won't be different.
@@ -70,7 +74,7 @@ b &=  2\times |C|.|V|\newline
 
 Again, we can rewrite the equation as $ax^2+bx+c\le 0$ and we need to find the smallest such $x$.
 
-We can use `ternary search`. Alternatively, we can just solve the equation(as [quadratic equation](https://st3inum.github.io/posts/toph-the-multiplayer-action-game/)) and find the minimum such $x$.
+We can use `ternary search`. Alternatively, we can just solve the equation(as [quadratic equation](https://en.wikipedia.org/wiki/Quadratic_equation)) and find the minimum such $x$.
 
 **We must handle some cases, like $R1=R2$ or $a=0$**
 
@@ -79,3 +83,7 @@ We can use `ternary search`. Alternatively, we can just solve the equation(as [q
 ## Reference:
 
 - [Toph - The Multiplayer Action Game](https://toph.co/p/the-multiplayer-action-game)
+
+## Similar Problems
+
+- [Lightoj - Closest Distance(1146)](https://lightoj.com/problem/closest-distance)
