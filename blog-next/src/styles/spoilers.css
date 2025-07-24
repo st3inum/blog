@@ -1,0 +1,134 @@
+/* Hugo-style spoiler implementation */
+
+/* Base spoiler styles */
+.spoiler {
+  margin: 1em 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden; /* Ensure content doesn't spill out */
+}
+
+/* Spoiler block container */
+.spoiler_block {
+  padding: 0;
+  margin: 0;
+}
+
+/* Spoiler content */
+.spoiler_block_content {
+  padding: 15px;
+  border-top: 1px solid #ddd;
+}
+
+/* Spoiler toggle links */
+.spoiler_block_show,
+.spoiler_block_hide {
+  display: block;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  font-weight: normal;
+}
+
+/* Make sure links inside the title don't look like links */
+.spoiler_block_show a,
+.spoiler_block_hide a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* Hover effect */
+.spoiler_block_show:hover,
+.spoiler_block_hide:hover {
+  background-color: #ebebeb;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .spoiler,
+.dark-mode .spoiler {
+  border-color: #444;
+}
+
+[data-theme="dark"] .spoiler_block_content,
+.dark-mode .spoiler_block_content {
+  border-color: #444;
+}
+
+[data-theme="dark"] .spoiler_block_show,
+[data-theme="dark"] .spoiler_block_hide,
+.dark-mode .spoiler_block_show,
+.dark-mode .spoiler_block_hide {
+  background-color: #333;
+  color: #eee;
+}
+
+[data-theme="dark"] .spoiler_block_show:hover,
+[data-theme="dark"] .spoiler_block_hide:hover,
+.dark-mode .spoiler_block_show:hover,
+.dark-mode .spoiler_block_hide:hover {
+  background-color: #444;
+}
+
+/* Zoom in icon (show) */
+.spoiler-block-icon-zoom-in {
+  /* We'll use text instead of image */
+  position: relative;
+  padding-left: 20px;
+}
+
+.spoiler-block-icon-zoom-in::before {
+  content: "+ ";
+  font-weight: bold;
+}
+
+/* Zoom out icon (hide) */
+.spoiler-block-icon-zoom-out {
+  /* We'll use text instead of image */
+  position: relative;
+  padding-left: 20px;
+}
+
+.spoiler-block-icon-zoom-out::before {
+  content: "- ";
+  font-weight: bold;
+}
+
+/* Common icon styling */
+.spoiler-block-icon {
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+/* Dark mode support for icons */
+[data-theme="dark"] .spoiler-block-icon,
+.dark-mode .spoiler-block-icon {
+  color: #ccc;
+}
+
+/* Legacy support for direct spoiler divs */
+div[data-spoiler-title] {
+  margin: 1rem 0;
+}
+
+/* Panel styling for spoiler container */
+.spoiler.panel.panel-default {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+/* Dark mode for panel */
+[data-theme="dark"] .spoiler.panel.panel-default,
+.dark-mode .spoiler.panel.panel-default {
+  border-color: #444;
+  background-color: #222;
+}

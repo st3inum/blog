@@ -1,0 +1,112 @@
+/* Override MUI CssBaseline list resets */
+.post-content ul {
+  margin: 1rem 0 !important;
+  padding-left: 2rem !important;
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+}
+
+.post-content ul li {
+  margin: 0.5rem 0 !important;
+  padding-left: 0 !important;
+  display: list-item !important;
+}
+
+/* Nested lists - second level */
+.post-content ul ul {
+  margin: 0.5rem 0 !important;
+  padding-left: 2rem !important;
+  list-style-type: circle !important;
+}
+
+.post-content ul ul li {
+  margin: 0.25rem 0 !important;
+  padding-left: 0 !important;
+  display: list-item !important;
+}
+
+/* Nested lists - third level */
+.post-content ul ul ul {
+  list-style-type: square !important;
+}
+
+/* Spoiler content inside list items - proper indentation */
+.post-content li details {
+  margin: 0.5rem 0 !important;
+  /* Remove left padding to align with list text */
+  padding-left: 0 !important;
+}
+
+.post-content li details summary {
+  margin-bottom: 0.5rem !important;
+  cursor: pointer !important;
+  font-weight: bold !important;
+  /* Indent summary to align with list content */
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Content inside spoilers should be indented relative to the list item */
+.post-content li details > *:not(summary) {
+  /* Indent spoiler content to show hierarchy */
+  margin-left: 1.5rem !important;
+  padding-left: 0.5rem !important;
+  /* border-left: 2px solid #e0e0e0 !important; */
+  margin-top: 0.5rem !important;
+}
+
+/* Ensure spoiler paragraphs inside lists are properly indented */
+.post-content li details p {
+  margin-left: 1.5rem !important;
+  padding-left: 0.5rem !important;
+  /* border-left: 2px solid #e0e0e0 !important; */
+}
+
+/* Dark mode support for spoiler borders */
+@media (prefers-color-scheme: dark) {
+  .post-content li details > *:not(summary),
+  .post-content li details p {
+    border-left-color: #424242 !important;
+  }
+}
+
+/* Nested lists - third level */
+.post-content ul ul ul li::before {
+  content: "▪";
+}
+
+/* Ordered lists */
+.post-content ol {
+  margin: 1rem 0;
+  padding-left: 0;
+  counter-reset: list-counter;
+}
+
+.post-content ol li {
+  margin: 0.5rem 0;
+  padding-left: 2rem;
+  position: relative;
+  counter-increment: list-counter;
+}
+
+.post-content ol li::before {
+  content: counter(list-counter) ".";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Nested ordered lists */
+.post-content ol ol {
+  margin: 0.25rem 0;
+  padding-left: 1.5rem;
+  counter-reset: nested-counter;
+}
+
+.post-content ol ol li {
+  counter-increment: nested-counter;
+}
+
+.post-content ol ol li::before {
+  content: counter(nested-counter, lower-alpha) ".";
+}

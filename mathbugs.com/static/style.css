@@ -1,0 +1,130 @@
+/* Custom overrides for Terminal theme – modern look */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+  --bg: #fdfdfd;
+  --fg: #222;
+  --accent: #ff7e29; /* soft orange */
+  --code-bg: #f5f5f5;
+}
+
+body.dark {
+  --bg: #202124;
+  --fg: #e8eaed;
+  --accent: #ff9d4c;
+  --code-bg: #2d2d2d;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+/* Code blocks */
+pre, code {
+  background: var(--code-bg);
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+}
+
+pre {
+  padding: 1rem;
+  overflow: auto;
+}
+
+/* Images */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.post-content img:hover {
+  transform: scale(1.02);
+}
+
+/* Simple fade-in animation for elements */
+.fade-in {
+  animation: fadeIn 0.6s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive gallery grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+/* Header tweaks */
+.header {
+  padding: 0.4rem 1rem;
+}
+.header__logo a {
+  font-size: 1.15rem;
+}
+.menu-trigger {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+}
+
+/* Read More button */
+.read-more.button {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.read-more.button:hover {
+  background: #ff8f43; /* slightly lighter accent */
+  padding: 0.4rem 0.9rem; /* preserve size */
+  display: inline-block;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, background 0.3s ease;
+  z-index: 9999;
+}
+#theme-toggle:hover {
+  transform: rotate(20deg);
+  background: #ff8f43;
+}

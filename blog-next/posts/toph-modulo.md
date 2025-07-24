@@ -1,14 +1,18 @@
-+++
-title = "Modulo - Toph"
-date = "2021-05-08T14:57:26+06:00"
-author = "steinum"
-authorTwitter = "" #do not include @
-cover = ""
-tags = ["number theory", "toph"]
-keywords = ["", ""]
-description = ""
-showFullContent = false
-+++
+---
+title: Modulo - Toph
+date: '2021-05-08T14:57:26+06:00'
+author: steinum
+authorTwitter: ''
+cover: ''
+tags:
+  - number theory
+  - toph
+keywords:
+  - ''
+  - ''
+description: ''
+showFullContent: false
+---
 
 You will be given an array, $A$ of length $n$ and $q$ queries. In each query you will be given a value $x$. You have to perform $A_{i} = A_{i} \text{ (mod $x$)} , 1 \le i \le n$ for each query , and after all the query print the array.
 

@@ -1,7 +1,8 @@
 baseURL = "https://st3inum.github.io/"
 languageCode = "en-us"
 theme = "terminal"
-paginate = 5
+[pagination]
+  pagerSize = 5
 
 [params]
   # dir name of your main content (default is `content/posts`).
