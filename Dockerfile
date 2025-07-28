@@ -22,6 +22,9 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
+# Remove deprecated ESLint configuration files
+RUN rm -f .eslintignore .eslintrc.json
+
 RUN npm run build
 
 # Production image, copy all the files and run next

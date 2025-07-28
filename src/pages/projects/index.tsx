@@ -146,7 +146,7 @@ export default function Projects() {
               
               <Grid container spacing={4}>
                 {featuredProjects.map((project) => (
-                  <Grid item xs={12} md={6} key={project.id}>
+                  <Grid size={{ xs: 12, md: 6 }} key={project.id}>
                     <Card 
                       elevation={0}
                       sx={{ 
@@ -257,7 +257,7 @@ export default function Projects() {
             
             <Grid container spacing={3}>
               {otherProjects.map((project) => (
-                <Grid item xs={12} sm={6} md={4} key={project.id}>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={project.id}>
                   <Card 
                     elevation={0}
                     sx={{ 

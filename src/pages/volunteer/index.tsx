@@ -160,7 +160,7 @@ export default function VolunteerWork() {
 
   // Function to render a volunteer work card
   const renderVolunteerWorkCard = (work: VolunteerWork) => (
-    <Grid item xs={12} key={work.id}>
+    <Grid size={{ xs: 12 }} key={work.id}>
       <Card 
         elevation={0}
         sx={{ 
@@ -179,7 +179,7 @@ export default function VolunteerWork() {
       >
         <CardContent sx={{ p: 3 }}>
           <Grid container spacing={3}>
-            <Grid item xs={12} md={3}>
+            <Grid size={{ xs: 12, md: 3 }}>
               <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 2 }}>
                 <Avatar 
                   sx={{ 
@@ -216,7 +216,7 @@ export default function VolunteerWork() {
               </Box>
             </Grid>
             
-            <Grid item xs={12} md={9}>
+            <Grid size={{ xs: 12, md: 9 }}>
               <Box>
                 <Typography variant="h6" component="h3" sx={{ fontWeight: 600, mb: 1 }}>
                   {work.title}

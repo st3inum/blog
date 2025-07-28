@@ -221,7 +221,7 @@ export default function Achievements() {
             
             <Grid container spacing={3}>
               {competitionAchievements.map((achievement) => (
-                <Grid item xs={12} md={6} key={achievement.id}>
+                <Grid size={{ xs: 12, md: 6 }} key={achievement.id}>
                   <Card 
                     elevation={0}
                     sx={{ 
@@ -329,7 +329,7 @@ export default function Achievements() {
             
             <Grid container spacing={3}>
               {academicAchievements.map((achievement) => (
-                <Grid item xs={12} md={6} key={achievement.id}>
+                <Grid size={{ xs: 12, md: 6 }} key={achievement.id}>
                   <Card 
                     elevation={0}
                     sx={{ 
@@ -437,7 +437,7 @@ export default function Achievements() {
             
             <Grid container spacing={3}>
               {certifications.map((achievement) => (
-                <Grid item xs={12} md={6} key={achievement.id}>
+                <Grid size={{ xs: 12, md: 6 }} key={achievement.id}>
                   <Card 
                     elevation={0}
                     sx={{ 
