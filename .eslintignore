@@ -1,0 +1,16 @@
+# Build output
+.next/
+out/
+
+# Node modules
+node_modules/
+
+# Cache
+.cache/
+
+# Coverage reports
+coverage/
+
+# Misc
+.DS_Store
+*.log
