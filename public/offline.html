@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're Offline | MathBugs Blog</title>
+  <style>
+    :root {
+      --primary: #673ab7;
+      --secondary: #00bcd4;
+      --background: #f5f5f5;
+      --text: #333;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #9575cd;
+        --secondary: #4dd0e1;
+        --background: #121212;
+        --text: #e0e0e0;
+      }
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .container {
+      max-width: 600px;
+      padding: 40px;
+      background-color: var(--background);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    
+    .button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    
+    .button:hover {
+      background-color: var(--secondary);
+    }
+    
+    .cached-content {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">📶</div>
+    <h1>You're Offline</h1>
+    <p>It looks like you've lost your internet connection. Don't worry though, you can still access previously visited pages from the cache.</p>
+    <p>Some features may be limited until you're back online.</p>
+    <a href="/" class="button">Try Again</a>
+    
+    <div class="cached-content">
+      <h2>Looking for something to read?</h2>
+      <p>Check your browser's back button to see if you can access previously visited blog posts that might be available offline.</p>
+    </div>
+  </div>
+
+  <script>
+    // Check if we're back online and reload the page
+    window.addEventListener('online', () => {
+      window.location.reload();
+    });
+    
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
+          console.log('ServiceWorker registration successful');
+        }).catch(error => {
+          console.log('ServiceWorker registration failed:', error);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

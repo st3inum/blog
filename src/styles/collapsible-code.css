@@ -1,0 +1,158 @@
+.collapsable-code {
+  position: relative;
+  width: 100%;
+  margin: 40px 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.collapsable-code input[type="checkbox"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.collapsable-code input[type="checkbox"]:checked ~ pre {
+  max-height: 0;
+  padding: 0 16px;
+  border-top: none;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.collapsable-code input[type="checkbox"]:checked ~ label .collapsable-code__toggle:after {
+  content: attr(data-label-expand);
+}
+
+.collapsable-code label {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 30px;
+  min-height: 40px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.collapsable-code label:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.collapsable-code__language {
+  color: #6366f1;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.collapsable-code__title {
+  flex: 1;
+  color: #6366f1;
+  padding: 8px 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+.collapsable-code__toggle {
+  color: #6366f1;
+  font-size: 16px;
+  padding: 8px 12px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.collapsable-code__toggle:after {
+  content: attr(data-label-collapse);
+}
+
+.collapsable-code pre {
+  margin: 0 !important;
+  border-radius: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.3) !important;
+  max-height: 2000px; /* Large enough for most code blocks */
+  overflow: auto;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease;
+  opacity: 1;
+}
+
+.collapsable-code pre code {
+  display: block;
+  padding: 16px !important;
+  font-family: 'Fira Code', Monaco, Consolas, 'Courier New', monospace !important;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .collapsable-code {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .collapsable-code label {
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .collapsable-code label:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .collapsable-code__language {
+  border-right-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Light mode adjustments */
+[data-theme="light"] .collapsable-code {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .collapsable-code label {
+  background: rgba(0, 0, 0, 0.03);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .collapsable-code label:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .collapsable-code__language {
+  border-right-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .collapsable-code pre {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .collapsable-code__title {
+    font-size: 14px;
+  }
+  
+  .collapsable-code__language {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+  
+  .collapsable-code__toggle {
+    padding: 6px 8px;
+  }
+  
+  .collapsable-code pre code {
+    font-size: 13px;
+    padding: 12px !important;
+  }
+}

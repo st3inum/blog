@@ -1,0 +1,265 @@
+/* Modern Syntax Highlighting Themes for Light and Dark Mode */
+
+/* Base Prism.js styles */
+code[class*="language-"],
+pre[class*="language-"] {
+  display: block;
+  overflow-x: auto;
+  padding: 16px !important;
+  font-family: 'Fira Code', Monaco, Consolas, 'Courier New', monospace !important;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 0;
+  color: #393a34;
+  background: #f8f8f8 !important;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+[data-theme="dark"] code[class*="language-"],
+[data-theme="dark"] pre[class*="language-"] {
+  color: #d4d4d4;
+  background: #1e1e1e !important;
+}
+
+/* Syntax highlighting themes for Prism.js */
+
+/* Light theme (GitHub style) */
+[data-theme="light"] .token.comment,
+[data-theme="light"] .token.prolog,
+[data-theme="light"] .token.doctype,
+[data-theme="light"] .token.cdata {
+  color: #6a737d;
+  font-style: italic;
+}
+
+[data-theme="light"] .token.punctuation {
+  color: #393a34;
+}
+
+[data-theme="light"] .token.property,
+[data-theme="light"] .token.tag,
+[data-theme="light"] .token.boolean,
+[data-theme="light"] .token.number,
+[data-theme="light"] .token.constant,
+[data-theme="light"] .token.symbol,
+[data-theme="light"] .token.deleted {
+  color: #005cc5;
+}
+
+[data-theme="light"] .token.selector,
+[data-theme="light"] .token.attr-name,
+[data-theme="light"] .token.string,
+[data-theme="light"] .token.char,
+[data-theme="light"] .token.builtin,
+[data-theme="light"] .token.inserted {
+  color: #032f62;
+}
+
+[data-theme="light"] .token.operator,
+[data-theme="light"] .token.entity,
+[data-theme="light"] .token.url,
+[data-theme="light"] .language-css .token.string,
+[data-theme="light"] .style .token.string {
+  color: #a67f59;
+  background: hsla(0, 0%, 100%, .5);
+}
+
+[data-theme="light"] .token.atrule,
+[data-theme="light"] .token.attr-value,
+[data-theme="light"] .token.keyword {
+  color: #d73a49;
+  font-weight: bold;
+}
+
+[data-theme="light"] .token.function,
+[data-theme="light"] .token.class-name {
+  color: #6f42c1;
+  font-weight: bold;
+}
+
+[data-theme="light"] .token.regex,
+[data-theme="light"] .token.important,
+[data-theme="light"] .token.variable {
+  color: #e36209;
+}
+
+[data-theme="light"] .token.important,
+[data-theme="light"] .token.bold {
+  font-weight: bold;
+}
+
+[data-theme="light"] .token.italic {
+  font-style: italic;
+}
+
+[data-theme="light"] .token.entity {
+  cursor: help;
+}
+
+/* Dark theme (VS Code Dark+ style) */
+[data-theme="dark"] .token.comment,
+[data-theme="dark"] .token.prolog,
+[data-theme="dark"] .token.doctype,
+[data-theme="dark"] .token.cdata {
+  color: #6a9955;
+  font-style: italic;
+}
+
+[data-theme="dark"] .token.punctuation {
+  color: #d4d4d4;
+}
+
+[data-theme="dark"] .token.property,
+[data-theme="dark"] .token.tag,
+[data-theme="dark"] .token.boolean,
+[data-theme="dark"] .token.number,
+[data-theme="dark"] .token.constant,
+[data-theme="dark"] .token.symbol,
+[data-theme="dark"] .token.deleted {
+  color: #b5cea8;
+}
+
+[data-theme="dark"] .token.selector,
+[data-theme="dark"] .token.attr-name,
+[data-theme="dark"] .token.string,
+[data-theme="dark"] .token.char,
+[data-theme="dark"] .token.builtin,
+[data-theme="dark"] .token.inserted {
+  color: #ce9178;
+}
+
+[data-theme="dark"] .token.operator,
+[data-theme="dark"] .token.entity,
+[data-theme="dark"] .token.url,
+[data-theme="dark"] .language-css .token.string,
+[data-theme="dark"] .style .token.string {
+  color: #d4d4d4;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .token.atrule,
+[data-theme="dark"] .token.attr-value,
+[data-theme="dark"] .token.keyword {
+  color: #569cd6;
+  font-weight: bold;
+}
+
+[data-theme="dark"] .token.function,
+[data-theme="dark"] .token.class-name {
+  color: #dcdcaa;
+  font-weight: bold;
+}
+
+[data-theme="dark"] .token.regex,
+[data-theme="dark"] .token.important,
+[data-theme="dark"] .token.variable {
+  color: #d16969;
+}
+
+[data-theme="dark"] .token.important,
+[data-theme="dark"] .token.bold {
+  font-weight: bold;
+}
+
+[data-theme="dark"] .token.italic {
+  font-style: italic;
+}
+
+[data-theme="dark"] .token.entity {
+  cursor: help;
+}
+
+/* General Prism.js styling */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #393a34;
+  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  font-size: 0.95em;
+  line-height: 1.2em;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+[data-theme="dark"] code[class*="language-"],
+[data-theme="dark"] pre[class*="language-"] {
+  color: #d4d4d4;
+}
+
+/* Special highlighting for C++ specific tokens */
+.token.preprocessor {
+  color: #9b9b9b;
+}
+
+[data-theme="light"] .hljs-preprocessor {
+  color: #795da3;
+}
+
+[data-theme="dark"] .hljs-preprocessor {
+  color: #c586c0;
+}
+
+/* Line numbers support (if needed) */
+.hljs-ln-numbers {
+  text-align: right;
+  color: #999;
+  border-right: 1px solid #ddd;
+  padding-right: 8px;
+  margin-right: 8px;
+  user-select: none;
+}
+
+[data-theme="dark"] .hljs-ln-numbers {
+  color: #666;
+  border-right-color: #444;
+}
+
+/* Scrollbar styling for code blocks */
+.hljs::-webkit-scrollbar {
+  height: 8px;
+}
+
+.hljs::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.hljs::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.hljs::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .hljs::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .hljs::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .hljs::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
