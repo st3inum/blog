@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 /**
  * Custom remark plugin to handle Hugo-style shortcodes in Markdown
  */

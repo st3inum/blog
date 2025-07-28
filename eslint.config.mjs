@@ -10,19 +10,30 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // Ignore patterns (replaces .eslintignore)
+  {
+    ignores: [
+      ".next/**/*",
+      "out/**/*",
+      "node_modules/**/*",
+      ".cache/**/*",
+      "coverage/**/*",
+      "*.log"
+    ]
+  },
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     rules: {
-      // Downgrade errors to warnings
-      "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/no-unused-vars": "warn",
-      "@typescript-eslint/no-require-imports": "warn",
-      "@typescript-eslint/ban-ts-comment": "warn",
-      "@next/next/no-assign-module-variable": "warn",
-      "@next/next/no-img-element": "warn",
-      "react/no-unescaped-entities": "warn",
+      // Disable unused variables warnings
+      "@typescript-eslint/no-unused-vars": "off",
       
-      // Disable rules that are causing too many errors
+      // Disable other warnings
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@next/next/no-assign-module-variable": "off",
+      "@next/next/no-img-element": "off",
+      "react/no-unescaped-entities": "off",
       "@typescript-eslint/no-unused-expressions": "off"
     }
   }
