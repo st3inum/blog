@@ -104,32 +104,27 @@ npm run export
 
 ### Using Docker Compose (Recommended)
 
-1. **Update docker-compose.yml** (remove version line if you see warnings):
-   ```bash
-   # Remove the first line 'version: '3.8'' from docker-compose.yml
-   ```
-
-2. **Build and run production container**:
+1. **Build and run production container**:
    ```bash
    docker compose up --build
    ```
 
-3. **Run in background**:
+2. **Run in background**:
    ```bash
    docker compose up --build -d
    ```
 
-4. **Development mode with hot reload**:
+3. **Development mode with hot reload**:
    ```bash
    docker compose --profile dev up blog-dev --build
    ```
 
-5. **View logs**:
+4. **View logs**:
    ```bash
    docker compose logs -f
    ```
 
-6. **Stop containers**:
+5. **Stop containers**:
    ```bash
    docker compose down
    ```
