@@ -89,3 +89,19 @@ storybook-static/
 
 # Cache files
 .cache/
+
+# Build artifacts
+tsconfig.tsbuildinfo
+out/
+
+# Temporary files
+output.md
+cleanup.sh
+
+# Migration scripts (if recreated)
+migrate-*.js
+convert-*.js
+*.sh
+
+# Test files
+test-*.html
