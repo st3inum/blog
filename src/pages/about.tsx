@@ -715,6 +715,15 @@ export default function About() {
               period: "2018 - 2019",
               description: "Participated in Regional Physics Olympiad as a Judge"
             },
+            {
+              title: "Instructor of a workshop in SUST SWE 21 on AI",
+              customContent: (
+                <ul style={{ marginLeft: "1rem" }}>
+                  <li>Discuss about Informed Search Algorithms</li>
+                  <li><a href="https://drive.google.com/file/d/14HzfYZ8lCIZOp-qvUICzmXNhPHdpn2M6/view"><u>Lecture Notes</u></a>, <a href="https://docs.google.com/presentation/d/1XBFE_F1418Tgt_gzCj6Uh9MV7wAja109BNQ5H4p0otc/edit?usp=sharing"><u>Slides</u></a></li>
+                </ul>
+              )
+            },
           ]}
         />
       </Container>
