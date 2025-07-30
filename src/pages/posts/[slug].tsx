@@ -173,9 +173,16 @@ export default function PostPage({ title, date, contentHtml, previousPost, nextP
       </Head>
       <Container maxWidth="md" sx={{ py: 4 }}>
         <Box mb={3}>
-          <Link href="/" passHref legacyBehavior>
+          <Link 
+            href="/" 
+            style={{ 
+              display: "flex", 
+              alignItems: "center", 
+              color: "inherit",
+              textDecoration: "none"
+            }}
+          >
             <Typography 
-              component="a" 
               sx={{ 
                 display: "flex", 
                 alignItems: "center", 
@@ -259,9 +266,16 @@ export default function PostPage({ title, date, contentHtml, previousPost, nextP
             </Typography>
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
               {previousPost && (
-                <Link href={`/posts/${previousPost.slug}`} passHref legacyBehavior>
+                <Link 
+                  href={`/posts/${previousPost.slug}`}
+                  style={{
+                    display: "flex", 
+                    alignItems: "center", 
+                    color: "inherit",
+                    textDecoration: "none"
+                  }}
+                >
                   <Typography 
-                    component="a" 
                     sx={{ 
                       display: "flex", 
                       alignItems: "center", 
@@ -276,9 +290,16 @@ export default function PostPage({ title, date, contentHtml, previousPost, nextP
                 </Link>
               )}
               {nextPost && (
-                <Link href={`/posts/${nextPost.slug}`} passHref legacyBehavior>
+                <Link 
+                  href={`/posts/${nextPost.slug}`}
+                  style={{
+                    display: "flex", 
+                    alignItems: "center", 
+                    color: "inherit",
+                    textDecoration: "none"
+                  }}
+                >
                   <Typography 
-                    component="a" 
                     sx={{ 
                       display: "flex", 
                       alignItems: "center", 
@@ -305,46 +326,41 @@ export default function PostPage({ title, date, contentHtml, previousPost, nextP
             <List>
               {relatedPosts.map((post) => (
                 <ListItem key={post.slug} disablePadding sx={{ mb: 2 }}>
-                  <Link
-                    href={`/posts/${post.slug}`}
-                    passHref
-                    legacyBehavior
-                  >
-                    <ListItemButton component="a">
-                      <ListItemText
-                        primary={post.title}
-                        secondary={
-                          <>
-                            <Typography
-                              variant="body2"
-                              color="text.secondary"
-                              component="span"
-                            >
-                              {new Date(post.date).toLocaleDateString(
-                                "en-US",
-                                {
-                                  year: "numeric",
-                                  month: "long",
-                                  day: "numeric",
-                                }
-                              )}
-                            </Typography>
-                            {post.tags && post.tags.length > 0 && (
-                              <Box sx={{ mt: 0.5, display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-                                {post.tags.map((tag) => (
-                                  <Chip
-                                    key={tag}
-                                    label={tag}
-                                    size="small"
-                                    variant="outlined"
-                                    sx={{ mr: 0.5 }}
-                                  />
-                                ))}
-                              </Box>
-                            )}
-                          </>
-                        }
-                      />
+                  <Link href={`/posts/${post.slug}`} style={{ width: '100%', textDecoration: 'none', color: 'inherit' }}>
+                    <ListItemButton>
+                      <Box sx={{ width: '100%' }}>
+                        <Typography variant="h6" component="div" sx={{ mb: 0.5 }}>
+                          {post.title}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          component="div"
+                          sx={{ mb: 1 }}
+                        >
+                          {new Date(post.date).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            }
+                          )}
+                        </Typography>
+                        {post.tags && post.tags.length > 0 && (
+                          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                            {post.tags.map((tag) => (
+                              <Chip
+                                key={tag}
+                                label={tag}
+                                size="small"
+                                variant="outlined"
+                                sx={{ fontSize: '0.75rem' }}
+                              />
+                            ))}
+                          </Box>
+                        )}
+                      </Box>
                     </ListItemButton>
                   </Link>
                 </ListItem>
