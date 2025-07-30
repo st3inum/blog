@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
 import { registerServiceWorker } from "@/lib/registerServiceWorker";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import ReportBugButton from "@/components/ReportBugButton";
 import { useRouter } from "next/router";
 import CookieConsent from "@/components/CookieConsent";
 import { initGA, pageview, isAnalyticsEnabled } from "@/lib/analytics";
@@ -69,6 +70,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </Box>
         <Footer />
+        <ReportBugButton />
         <ScrollToTopButton />
         <CookieConsent 
           onAccept={handleAcceptCookies}
