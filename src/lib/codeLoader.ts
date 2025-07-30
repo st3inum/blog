@@ -64,6 +64,25 @@ export function initializeCodeLoaders() {
       return;
     }
     
+    // Check if code is already cached
+    if (codeCache.has(codelink)) {
+      const cachedCode = codeCache.get(codelink)!;
+      console.log(`Using cached code for ${codeId}`);
+      codeElement.textContent = cachedCode;
+      
+      // Apply syntax highlighting to cached code
+      setTimeout(() => {
+        highlightCodeElement(codeElement);
+      }, 50);
+      return;
+    }
+    
+    // Mark as loading to prevent duplicate requests
+    element.setAttribute('data-loading', 'true');
+    
+    // Show loading state
+    codeElement.textContent = '// Loading code...';
+    
     // Get all possible paths to try
     const fallbackPaths = getFallbackPaths(codelink);
     const isExternal = isExternalUrl(codelink);

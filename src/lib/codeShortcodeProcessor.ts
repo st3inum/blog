@@ -50,23 +50,45 @@ export function convertCodeShortcodes(content: string): string {
     const isCollapsed = params.isCollapsed === 'true';
     const codelink = params.codelink;
     
-    // Generate HTML structure matching Hugo template
-    const codeContent = innerContent.trim() || (codelink ? '// Loading code...' : '// No code provided');
-    const codelinkAttr = codelink ? ` data-codelink="${codelink}" data-code-id="code${id}"` : '';
+    // Determine the code content and attributes
+    let codeContent = '';
+    let codelinkAttr = '';
+    
+    if (innerContent.trim()) {
+      // Case 1: Inline code content provided
+      codeContent = innerContent.trim();
+      console.log('Using inline code content');
+    } else if (codelink) {
+      // Case 2: External code link provided
+      codeContent = '// Loading code...';
+      codelinkAttr = ` data-codelink="${codelink}" data-code-id="code${id}"`;
+      console.log('Using external code link:', codelink);
+    } else {
+      // Case 3: No content or link provided
+      codeContent = '// No code content available';
+      console.warn('Code shortcode has no content or codelink');
+    }
+    
+    // Escape HTML in code content for inline code
+    if (!codelink && innerContent.trim()) {
+      codeContent = codeContent
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
     
     const html = `
 <div class="collapsable-code"${codelinkAttr}>
   <input id="${id}" type="checkbox" ${isCollapsed ? 'checked' : ''} />
   <label for="${id}">
     <span class="collapsable-code__language">${params.language.toUpperCase()}</span>
-    ${title ? `<span class="collapsable-code__title">${title}</span>` : ''}
+    <span class="collapsable-code__title">${title ?? ''}</span>
     <span class="collapsable-code__toggle" data-label-expand="${expand}" data-label-collapse="${collapse}"></span>
   </label>
   <pre class="language-${params.language}"><code id="code${id}">${codeContent}</code></pre>
 </div>`;
-    
-    // No inline script needed - using client-side loader with data attributes
-    
     return html;
   });
   

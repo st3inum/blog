@@ -90,6 +90,14 @@ export const ColorModeProvider: React.FC<{ children: React.ReactNode }> = ({
     if (mounted) {
       localStorage.setItem('colorMode', mode);
       localStorage.setItem('useSystemTheme', isSystemTheme.toString());
+      
+      // Update data-theme attribute for CSS scoping
+      document.documentElement.setAttribute('data-theme', mode);
+      
+      // Trigger syntax highlighter theme update
+      if (typeof window !== 'undefined' && (window as any).handleThemeChange) {
+        (window as any).handleThemeChange();
+      }
     }
   }, [mode, isSystemTheme, mounted]);
 

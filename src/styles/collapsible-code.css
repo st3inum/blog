@@ -1,122 +1,315 @@
+/* Modern Code Block Design - Light & Dark Mode Support */
 .collapsable-code {
   position: relative;
   width: 100%;
-  margin: 40px 0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  margin: 2rem 0;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
 }
 
+.collapsable-code:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+/* Light Mode Styling */
+[data-theme="light"] .collapsable-code,
+.collapsable-code {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+}
+
+/* Dark Mode Styling */
+[data-theme="dark"] .collapsable-code {
+  background: linear-gradient(135deg, #1e1e1e 0%, #252526 100%);
+  border: 1px solid #3c3c3c;
+}
+
+/* Hidden Checkbox */
 .collapsable-code input[type="checkbox"] {
   position: absolute;
-  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
+/* Collapse Animation */
 .collapsable-code input[type="checkbox"]:checked ~ pre {
   max-height: 0;
-  padding: 0 16px;
+  padding: 0 1.5rem;
   border-top: none;
   overflow: hidden;
   opacity: 0;
+  transform: translateY(-10px);
 }
 
-.collapsable-code input[type="checkbox"]:checked ~ label .collapsable-code__toggle:after {
-  content: attr(data-label-expand);
+.collapsable-code input[type="checkbox"]:checked ~ label .collapsable-code__toggle::before {
+  content: '';
+  transform: translate(-50%, -30%) rotate(-135deg);
 }
 
+/* Header Label */
 .collapsable-code label {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 30px;
-  min-height: 40px;
+  min-height: 3.5rem;
   margin: 0;
-  background: rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 1.5rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.collapsable-code label:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.collapsable-code__language {
-  color: #6366f1;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 8px 12px;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.collapsable-code__title {
-  flex: 1;
-  color: #6366f1;
-  padding: 8px 12px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  font-weight: 500;
-}
-
-.collapsable-code__toggle {
-  color: #6366f1;
-  font-size: 16px;
-  padding: 8px 12px;
-  font-weight: bold;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
 }
 
-.collapsable-code__toggle:after {
-  content: attr(data-label-collapse);
+/* Light Mode Header */
+[data-theme="light"] .collapsable-code label,
+.collapsable-code label {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border-bottom: 1px solid #cbd5e1;
 }
 
-.collapsable-code pre {
-  margin: 0 !important;
-  border-radius: 0;
-  border: none;
-  background: rgba(0, 0, 0, 0.3) !important;
-  max-height: 2000px; /* Large enough for most code blocks */
-  overflow: auto;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.3s ease;
-  opacity: 1;
-}
-
-.collapsable-code pre code {
-  display: block;
-  padding: 16px !important;
-  font-family: 'Fira Code', Monaco, Consolas, 'Courier New', monospace !important;
-  font-size: 14px;
-  line-height: 1.5;
-  overflow-x: auto;
-}
-
-/* Dark mode adjustments */
-[data-theme="dark"] .collapsable-code {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
+/* Dark Mode Header */
 [data-theme="dark"] .collapsable-code label {
-  background: rgba(255, 255, 255, 0.05);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #2d2d30 0%, #3c3c3c 100%);
+  border-bottom: 1px solid #4a4a4a;
 }
 
+.collapsable-code label:hover {
+  transform: translateY(-1px);
+}
+
+/* Light Mode Hover */
+[data-theme="light"] .collapsable-code label:hover,
+.collapsable-code label:hover {
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+}
+
+/* Dark Mode Hover */
 [data-theme="dark"] .collapsable-code label:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, #3c3c3c 0%, #4a4a4a 100%);
 }
 
+/* Language Badge */
+.collapsable-code__language {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+
+/* Light Mode Language Badge */
+[data-theme="light"] .collapsable-code__language,
+.collapsable-code__language {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+/* Dark Mode Language Badge - One Dark Pro Theme */
 [data-theme="dark"] .collapsable-code__language {
-  border-right-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #282c34 0%, #21252b 100%);
+  color: #61afef;
+  border: 1px solid #4b5263;
+  box-shadow: 0 2px 4px rgba(75, 82, 99, 0.3);
 }
 
-/* Light mode adjustments */
-[data-theme="light"] .collapsable-code {
-  border-color: rgba(0, 0, 0, 0.1);
+/* Title */
+.collapsable-code__title {
+  flex: 1;
+  margin: 0 1rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+/* Light Mode Title */
+[data-theme="light"] .collapsable-code__title,
+.collapsable-code__title {
+  color: #475569;
+}
+
+/* Dark Mode Title */
+[data-theme="dark"] .collapsable-code__title {
+  color: #94a3b8;
+}
+
+/* Modern Toggle Button */
+.collapsable-code__toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+/* Light mode toggle styling */
+[data-theme="light"] .collapsable-code__toggle,
+.collapsable-code__toggle {
+  color: #64748b;
+  border-color: #e2e8f0;
+}
+
+[data-theme="light"] .collapsable-code__toggle:hover,
+.collapsable-code__toggle:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #475569;
+  transform: scale(1.05);
+}
+
+/* Dark mode toggle styling */
+[data-theme="dark"] .collapsable-code__toggle {
+  color: #94a3b8;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .collapsable-code__toggle:hover {
+  background: #374151;
+  border-color: #4b5563;
+  color: #e2e8f0;
+  transform: scale(1.05);
+}
+
+/* Upward arrow icon like go-to-top button */
+.collapsable-code__toggle::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 6px solid currentColor;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Collapsed state - arrow points up (expand) */
+.collapsable-code input[type="checkbox"]:checked ~ label .collapsable-code__toggle::before {
+  transform: rotate(180deg);
+}
+
+/* Focus state for accessibility */
+.collapsable-code input[type="checkbox"]:focus ~ label .collapsable-code__toggle {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Active state */
+.collapsable-code__toggle:active {
+  transform: scale(0.95);
+}
+
+/* Hide the show/hide text */
+.collapsable-code__toggle::after {
+  display: none !important;
+}
+
+/* Code Block */
+.collapsable-code pre {
+  margin: 0;
+  padding: 1.5rem;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light Mode Code Block */
+[data-theme="light"] .collapsable-code pre,
+.collapsable-code pre {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  color: #1e293b;
+}
+
+/* Dark Mode Code Block - One Dark Pro Theme */
+[data-theme="dark"] .collapsable-code pre {
+  background: linear-gradient(135deg, #282c34 0%, #21252b 100%);
+  color: #abb2bf;
+}
+
+.collapsable-code code {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+/* Scrollbar Styling */
+.collapsable-code pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.collapsable-code pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Light Mode Scrollbar */
+[data-theme="light"] .collapsable-code pre::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+[data-theme="light"] .collapsable-code pre::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Dark Mode Scrollbar */
+[data-theme="dark"] .collapsable-code pre::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .collapsable-code pre::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
+
+/* Loading State */
+.collapsable-code[data-loading="true"] pre {
+  position: relative;
+  overflow: hidden;
+}
+
+.collapsable-code[data-loading="true"] pre::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: loading-shimmer 1.5s infinite;
+}
+
+[data-theme="dark"] .collapsable-code[data-loading="true"] pre::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(171, 178, 191, 0.1),
+    transparent
+  );
 }
 
 [data-theme="light"] .collapsable-code label {
