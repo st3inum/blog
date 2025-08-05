@@ -85,6 +85,21 @@ export const ColorModeProvider: React.FC<{ children: React.ReactNode }> = ({
     return undefined;
   }, [isSystemTheme]);
 
+  // Keyboard shortcut for theme toggle (Ctrl/Cmd + Shift + K)
+  useEffect(() => {
+    if (!mounted) return;
+    
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'K' && !event.altKey) {
+        event.preventDefault();
+        setMode(mode === 'light' ? 'dark' : 'light');
+      }
+    };
+    
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [mounted, mode, setMode]);
+
   // Save theme preferences to localStorage when they change
   useEffect(() => {
     if (mounted) {

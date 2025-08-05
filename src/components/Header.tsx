@@ -287,7 +287,20 @@ const Header: React.FC = () => {
               open={Boolean(themeMenuAnchor)}
               onClose={handleThemeMenuClose}
               disableScrollLock={true}
+              sx={{
+                '& .MuiPaper-root': {
+                  minWidth: 180,
+                  mt: 1,
+                  borderRadius: 2,
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+                }
+              }}
             >
+              <Box sx={{ px: 2, py: 1, borderBottom: 1, borderColor: 'divider' }}>
+                <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 500 }}>
+                  Press Ctrl+Shift+K to toggle
+                </Typography>
+              </Box>
               <MenuItem onClick={() => handleThemeChange('light')} selected={!isSystemTheme && mode === 'light'}>
                 <ListItemIcon>
                   <Brightness7Icon fontSize="small" />
