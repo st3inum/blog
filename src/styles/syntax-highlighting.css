@@ -263,3 +263,24 @@ pre[class*="language-"] {
 [data-theme="dark"] .hljs::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.5);
 }
+
+/* Code copy button styles */
+.code-copy-button {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+pre:hover .code-copy-button {
+  opacity: 1;
+}
+
+.code-copy-button:focus {
+  opacity: 1;
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* Ensure code blocks have proper spacing for copy button */
+pre[class*="language-"] {
+  padding-right: 48px !important;
+}
