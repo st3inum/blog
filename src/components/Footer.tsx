@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Container, Typography, Divider, IconButton } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import { useTheme } from '@mui/material/styles';
 
 const Footer: React.FC = () => {
@@ -57,48 +56,45 @@ const Footer: React.FC = () => {
           <Box sx={{ flex: 1, display: 'flex', justifyContent: { xs: 'flex-start', sm: 'flex-end' } }}>
             <Box sx={{ display: 'flex', gap: 0.5 }}>
               <IconButton 
-                size="small"
+                size="medium"
                 aria-label="GitHub"
                 sx={{ 
                   color: 'text.secondary',
-                  padding: 0.5,
-                  '&:hover': { color: 'primary.main' }
+                  borderRadius: 2,
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&:hover': { 
+                    color: '#ffffff',
+                    backgroundColor: '#24292e',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 20px rgba(36, 41, 46, 0.3)'
+                  }
                 }}
                 href="https://github.com/st3inum"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <GitHubIcon fontSize="small" />
+                <GitHubIcon />
               </IconButton>
               
               <IconButton 
-                size="small"
+                size="medium"
                 aria-label="LinkedIn"
                 sx={{ 
                   color: 'text.secondary',
-                  padding: 0.5,
-                  '&:hover': { color: '#0077b5' }
+                  borderRadius: 2,
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  '&:hover': { 
+                    color: '#ffffff',
+                    backgroundColor: '#0077b5',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 20px rgba(0, 119, 181, 0.3)'
+                  }
                 }}
-                href="https://linkedin.com/in/st3inum"
+                href="https://linkedin.com/in/steinum"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <LinkedInIcon fontSize="small" />
-              </IconButton>
-              
-              <IconButton 
-                size="small"
-                aria-label="Twitter"
-                sx={{ 
-                  color: 'text.secondary',
-                  padding: 0.5,
-                  '&:hover': { color: '#1DA1F2' }
-                }}
-                href="https://twitter.com/st3inum"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <TwitterIcon fontSize="small" />
+                <LinkedInIcon />
               </IconButton>
             </Box>
           </Box>

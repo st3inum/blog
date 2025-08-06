@@ -5,7 +5,6 @@ export const siteConfig = {
   language: 'en',
   author: 'ST3INUM',
   social: {
-    twitter: '@st3inum',
     github: 'st3inum',
   },
   // Add more site-wide configuration as needed
