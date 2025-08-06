@@ -328,17 +328,17 @@ function addCopyButton(codeElement: HTMLElement) {
   // Add styles
   Object.assign(copyButton.style, {
     position: 'absolute',
-    top: '8px',
-    right: '8px',
-    width: '32px',
-    height: '32px',
+    top: '12px',
+    right: '12px',
+    width: '36px',
+    height: '36px',
     border: 'none',
-    borderRadius: '6px',
+    borderRadius: '8px',
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    transition: 'all 0.2s ease',
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     zIndex: '10',
     fontSize: '0',
   });
