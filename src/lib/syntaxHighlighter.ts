@@ -189,6 +189,9 @@ function highlightSingleElement(block: HTMLElement, index?: number) {
     console.log(`Highlighting code block ${index || 'unknown'}`);
     window.Prism.highlightElement(block);
     console.log(`Successfully highlighted code block ${index || 'unknown'}`);
+    
+    // Add copy button after highlighting
+    addCopyButton(block);
   } catch (error) {
     console.warn(`Failed to highlight code block ${index || 'unknown'}:`, error);
   }
@@ -266,6 +269,150 @@ export function handleThemeChange() {
 // Expose globally for theme integration
 if (typeof window !== 'undefined') {
   (window as any).handleThemeChange = handleThemeChange;
+}
+
+// Function to get clean code text from element
+function getCleanCodeText(codeElement: HTMLElement): string {
+  // Store original code from data attribute if available
+  const pre = codeElement.closest('pre');
+  if (pre && pre.dataset.originalCode) {
+    return pre.dataset.originalCode;
+  }
+  
+  // Clone the element to avoid modifying the original
+  const clone = codeElement.cloneNode(true) as HTMLElement;
+  
+  // Remove any loading text or placeholder content
+  const loadingElements = clone.querySelectorAll('[data-loading], .loading');
+  loadingElements.forEach(el => el.remove());
+  
+  // Get text content and clean it up
+  let text = clone.textContent || '';
+  
+  // Remove common loading messages
+  text = text.replace(/^\s*\/\/ Loading code\.\.\.\s*$/gm, '');
+  text = text.replace(/^\s*Loading\.\.\.\s*$/gm, '');
+  text = text.replace(/^\s*Please wait\.\.\.\s*$/gm, '');
+  
+  // Clean up extra whitespace
+  text = text.trim();
+  
+  return text;
+}
+
+// Function to add copy button to code blocks
+function addCopyButton(codeElement: HTMLElement) {
+  const pre = codeElement.closest('pre');
+  if (!pre || pre.querySelector('.code-copy-button')) {
+    return; // Skip if no pre parent or button already exists
+  }
+
+  // Store original code for reliable copying
+  if (!pre.dataset.originalCode) {
+    pre.dataset.originalCode = getCleanCodeText(codeElement);
+  }
+
+  // Make pre element relative for absolute positioning
+  pre.style.position = 'relative';
+  
+  // Create copy button
+  const copyButton = document.createElement('button');
+  copyButton.className = 'code-copy-button';
+  copyButton.innerHTML = `
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+  `;
+  
+  // Add styles
+  Object.assign(copyButton.style, {
+    position: 'absolute',
+    top: '8px',
+    right: '8px',
+    width: '32px',
+    height: '32px',
+    border: 'none',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transition: 'all 0.2s ease',
+    zIndex: '10',
+    fontSize: '0',
+  });
+  
+  // Apply theme-aware styles
+  const updateButtonTheme = () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      Object.assign(copyButton.style, {
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        color: 'rgba(255, 255, 255, 0.8)',
+        border: '1px solid rgba(255, 255, 255, 0.2)',
+      });
+    } else {
+      Object.assign(copyButton.style, {
+        backgroundColor: 'rgba(0, 0, 0, 0.05)',
+        color: 'rgba(0, 0, 0, 0.7)',
+        border: '1px solid rgba(0, 0, 0, 0.1)',
+      });
+    }
+  };
+  
+  updateButtonTheme();
+  
+  // Hover effects
+  copyButton.addEventListener('mouseenter', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      Object.assign(copyButton.style, {
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        color: 'rgba(255, 255, 255, 1)',
+        transform: 'scale(1.05)',
+      });
+    } else {
+      Object.assign(copyButton.style, {
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        color: 'rgba(0, 0, 0, 0.9)',
+        transform: 'scale(1.05)',
+      });
+    }
+  });
+  
+  copyButton.addEventListener('mouseleave', () => {
+    copyButton.style.transform = 'scale(1)';
+    updateButtonTheme();
+  });
+  
+  // Copy functionality
+  copyButton.addEventListener('click', async () => {
+    try {
+      // Get fresh code text at copy time
+      const codeText = getCleanCodeText(codeElement);
+      await navigator.clipboard.writeText(codeText);
+      
+      // Show success feedback
+      const originalHTML = copyButton.innerHTML;
+      copyButton.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="20,6 9,17 4,12"></polyline>
+        </svg>
+      `;
+      
+      setTimeout(() => {
+        copyButton.innerHTML = originalHTML;
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy code:', err);
+    }
+  });
+  
+  // Add tooltip
+  copyButton.title = 'Copy code';
+  
+  pre.appendChild(copyButton);
 }
 
 // Auto-initialize when DOM is ready
