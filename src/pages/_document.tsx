@@ -5,14 +5,18 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* PWA Meta Tags */}
-        <meta name="application-name" content="MathBugs Blog" />
+        <meta name="application-name" content="steinum's blog" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="MathBugs Blog" />
-        <meta name="description" content="A blog about mathematics, programming, and more" />
+        <meta name="apple-mobile-web-app-title" content="steinum's blog" />
+        <meta name="description" content="A blog about mathematics, algorithms, and competitive programming by Fahim Tajwar Saikat" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#673ab7" />
+        
+        {/* Author Meta Tags */}
+        <meta name="author" content="Fahim Tajwar Saikat" />
+        <meta name="keywords" content="steinum, Fahim Tajwar Saikat, mathematics, algorithms, competitive programming" />
         
         {/* PWA Icons */}
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />

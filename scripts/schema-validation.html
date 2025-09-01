@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schema.org Validation Guide</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #1a73e8;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .validation-link {
+      display: inline-block;
+      background-color: #1a73e8;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 4px;
+      margin: 10px 0;
+    }
+    .validation-link:hover {
+      background-color: #155db1;
+    }
+    pre {
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    .checklist {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .checklist li {
+      margin-bottom: 8px;
+      padding-left: 25px;
+      position: relative;
+    }
+    .checklist li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+  <h1>Schema.org Structured Data Validation</h1>
+  
+  <div class="card">
+    <h2>Validation Tools</h2>
+    <p>Use these tools to validate the schema.org structured data on your blog:</p>
+    <ul>
+      <li><a href="https://search.google.com/test/rich-results" target="_blank" class="validation-link">Google Rich Results Test</a></li>
+      <li><a href="https://validator.schema.org/" target="_blank" class="validation-link">Schema.org Validator</a></li>
+      <li><a href="https://search.google.com/search-console" target="_blank" class="validation-link">Google Search Console</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Pages to Validate</h2>
+    
+    <h3>1. Homepage</h3>
+    <p>URL: <a href="https://steinum.com" target="_blank">https://steinum.com</a></p>
+    <p>Expected Schema Type: <strong>WebSite</strong></p>
+    <ul class="checklist">
+      <li>Name property is present ("steinum's blog")</li>
+      <li>URL property is valid</li>
+      <li>Author/publisher properties reference the Person entity</li>
+      <li>SearchAction is properly configured</li>
+    </ul>
+    
+    <h3>2. About Page</h3>
+    <p>URL: <a href="https://steinum.com/about" target="_blank">https://steinum.com/about</a></p>
+    <p>Expected Schema Type: <strong>Person</strong></p>
+    <ul class="checklist">
+      <li>Name property is present ("Fahim Tajwar Saikat")</li>
+      <li>AlternateName property is present ("steinum")</li>
+      <li>URL property is valid</li>
+      <li>Social profiles are correctly formatted</li>
+      <li>Education, work experience, and skills are included</li>
+    </ul>
+    
+    <h3>3. Blog Post Page</h3>
+    <p>URL: <a href="https://steinum.com/posts/Intro-to-modular-arithmetic" target="_blank">https://steinum.com/posts/Intro-to-modular-arithmetic</a></p>
+    <p>Expected Schema Type: <strong>BlogPosting</strong></p>
+    <ul class="checklist">
+      <li>Headline property is present</li>
+      <li>Author property references the Person entity</li>
+      <li>DatePublished property is in ISO format</li>
+      <li>Image property is valid (if present)</li>
+      <li>Publisher property references the Person entity</li>
+      <li>MainEntityOfPage property is correctly configured</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>How to Validate</h2>
+    <ol>
+      <li>Copy the URL of the page you want to validate</li>
+      <li>Open the Google Rich Results Test tool</li>
+      <li>Paste the URL and click "TEST URL"</li>
+      <li>Review the detected structured data types</li>
+      <li>Check for any errors or warnings</li>
+      <li>Verify that all required properties are present</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Sample JSON-LD Implementations</h2>
+    
+    <h3>Person Schema</h3>
+    <pre>
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Fahim Tajwar Saikat",
+  "alternateName": "steinum",
+  "url": "https://steinum.com/about",
+  "sameAs": [
+    "https://github.com/st3inum",
+    "https://www.linkedin.com/in/fahim-tajwar/"
+  ],
+  "jobTitle": "Software Engineer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Company Name"
+  }
+}
+    </pre>
+    
+    <h3>BlogPosting Schema</h3>
+    <pre>
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Post Title",
+  "description": "Post description",
+  "image": "https://steinum.com/image.jpg",
+  "datePublished": "2023-01-01T00:00:00Z",
+  "dateModified": "2023-01-01T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Fahim Tajwar Saikat",
+    "url": "https://steinum.com/about"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Fahim Tajwar Saikat",
+    "url": "https://steinum.com"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://steinum.com/posts/post-slug"
+  }
+}
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>Next Steps After Validation</h2>
+    <ol>
+      <li>Submit your sitemap.xml to Google Search Console</li>
+      <li>Request indexing of key pages</li>
+      <li>Monitor search appearance in Google Search Console</li>
+      <li>Check for any structured data errors in the Coverage report</li>
+    </ol>
+  </div>
+</body>
+</html>

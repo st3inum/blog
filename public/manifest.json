@@ -1,7 +1,7 @@
 {
-  "name": "MathBugs Blog",
-  "short_name": "MathBugs",
-  "description": "A blog about mathematics, programming, and more",
+  "name": "steinum's blog",
+  "short_name": "steinum",
+  "description": "A blog about mathematics, algorithms, and competitive programming by Fahim Tajwar Saikat",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#673ab7",

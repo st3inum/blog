@@ -26,8 +26,40 @@ export default function Home({ posts }: HomeProps) {
   return (
     <>
       <Head>
-        <title>MathBugs Blog</title>
-        <meta name="description" content="MathBugs - A blog about mathematics, algorithms, and competitive programming" />
+        <title>steinum's blog</title>
+        <meta name="description" content="steinum's blog - A blog about mathematics, algorithms, competitive programming, and more by Fahim Tajwar Saikat" />
+        <meta name="keywords" content="steinum, Fahim Tajwar Saikat, mathematics, algorithms, competitive programming, software engineering" />
+        
+        {/* Schema.org WebSite markup for better SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "steinum's blog",
+              "alternateName": "Fahim Tajwar Saikat's blog",
+              "url": "https://steinum.com",
+              "description": "A blog about mathematics, algorithms, competitive programming, and more by Fahim Tajwar Saikat",
+              "author": {
+                "@type": "Person",
+                "name": "Fahim Tajwar Saikat",
+                "alternateName": "steinum",
+                "url": "https://steinum.com/about"
+              },
+              "publisher": {
+                "@type": "Person",
+                "name": "Fahim Tajwar Saikat",
+                "alternateName": "steinum"
+              },
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://steinum.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
       </Head>
       
       <Box 
@@ -57,7 +89,7 @@ export default function Home({ posts }: HomeProps) {
               mb: 3
             }}
           >
-            MathBugs Blog
+            steinum's blog
           </Typography>
           <Typography 
             variant="h5" 
