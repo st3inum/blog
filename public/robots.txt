@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://steinum.com/sitemap.xml
+Sitemap: https://steinum.dev/sitemap.xml

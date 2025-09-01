@@ -163,15 +163,15 @@ export default function PostPage({ title, date, contentHtml, previousPost, nextP
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description || `${title} - Blog Post`} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.com'}/posts/${slug}`} />
-        {cover && <meta property="og:image" content={cover.startsWith('http') ? cover : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.com'}${cover}`} />}
+        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.dev'}/posts/${slug}`} />
+        {cover && <meta property="og:image" content={cover.startsWith('http') ? cover : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.dev'}${cover}`} />}
         
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         {authorTwitter && <meta name="twitter:creator" content={authorTwitter} />}
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description || `${title} - Blog Post`} />
-        {cover && <meta name="twitter:image" content={cover.startsWith('http') ? cover : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.com'}${cover}`} />}
+        {cover && <meta name="twitter:image" content={cover.startsWith('http') ? cover : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.dev'}${cover}`} />}
         
         {/* Schema.org BlogPosting markup for better SEO */}
         <script
@@ -182,25 +182,25 @@ export default function PostPage({ title, date, contentHtml, previousPost, nextP
               "@type": "BlogPosting",
               "headline": title,
               "description": description || `${title} - Blog Post`,
-              "image": cover ? (cover.startsWith('http') ? cover : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.com'}${cover}`) : null,
+              "image": cover ? (cover.startsWith('http') ? cover : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.dev'}${cover}`) : null,
               "datePublished": date,
               "dateModified": date,
-              "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.com'}/posts/${slug}`,
+              "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.dev'}/posts/${slug}`,
               "author": {
                 "@type": "Person",
                 "name": "Fahim Tajwar Saikat",
                 "alternateName": "steinum",
-                "url": "https://steinum.com/about"
+                "url": "https://steinum.dev/about"
               },
               "publisher": {
                 "@type": "Person",
                 "name": "Fahim Tajwar Saikat",
                 "alternateName": "steinum",
-                "url": "https://steinum.com"
+                "url": "https://steinum.dev"
               },
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.com'}/posts/${slug}`
+                "@id": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.dev'}/posts/${slug}`
               },
               "keywords": tags?.join(', ') || ''
             })
