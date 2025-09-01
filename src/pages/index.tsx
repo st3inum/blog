@@ -39,13 +39,13 @@ export default function Home({ posts }: HomeProps) {
               "@type": "WebSite",
               "name": "steinum's blog",
               "alternateName": "Fahim Tajwar Saikat's blog",
-              "url": "https://steinum.com",
+              "url": "https://steinum.dev",
               "description": "A blog about mathematics, algorithms, competitive programming, and more by Fahim Tajwar Saikat",
               "author": {
                 "@type": "Person",
                 "name": "Fahim Tajwar Saikat",
                 "alternateName": "steinum",
-                "url": "https://steinum.com/about"
+                "url": "https://steinum.dev/about"
               },
               "publisher": {
                 "@type": "Person",
@@ -54,7 +54,7 @@ export default function Home({ posts }: HomeProps) {
               },
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://steinum.com/search?q={search_term_string}",
+                "target": "https://steinum.dev/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })

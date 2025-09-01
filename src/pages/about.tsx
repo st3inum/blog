@@ -45,8 +45,8 @@ export default function About() {
               "@type": "Person",
               "name": "Fahim Tajwar Saikat",
               "alternateName": "steinum",
-              "url": "https://steinum.com",
-              "image": "https://steinum.com/profile-image.jpg",
+              "url": "https://steinum.dev",
+              "image": "https://steinum.dev/profile-image.jpg",
               "sameAs": [
                 "https://github.com/st3inum",
                 "https://linkedin.com/in/steinum",
