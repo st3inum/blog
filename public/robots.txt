@@ -1,4 +1,24 @@
+# Robots.txt for steinum.dev
+# Allow all crawlers including Googlebot and Bingbot
+
 User-agent: *
 Allow: /
 
+# Specific rules for Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Specific rules for Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block access to admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /api/
+
+# Sitemap location
 Sitemap: https://steinum.dev/sitemap.xml

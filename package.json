@@ -14,7 +14,8 @@
     "lint": "next lint",
     "generate-rss": "node scripts/generate-rss.js",
     "generate-sitemap": "node scripts/generate-sitemap-simple.js",
-    "cleanup": "node scripts/clean-deps.js"
+    "cleanup": "node scripts/clean-deps.js",
+    "validate-seo": "node scripts/bing-google-seo-validator.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
