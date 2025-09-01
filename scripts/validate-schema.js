@@ -11,9 +11,9 @@ const path = require('path');
 
 // URLs to test
 const urlsToTest = [
-  'https://steinum.com', // Homepage
-  'https://steinum.com/about', // About page with Person schema
-  'https://steinum.com/posts/Intro-to-modular-arithmetic' // Sample blog post
+  'https://steinum.dev', // Homepage
+  'https://steinum.dev/about', // About page with Person schema
+  'https://steinum.dev/posts/Intro-to-modular-arithmetic' // Sample blog post
 ];
 
 // Function to validate a URL using Google's Rich Results Test

@@ -7,12 +7,14 @@
     "npm": ">=10.0.0"
   },
   "scripts": {
-    "dev": "node scripts/generate-rss.js && next dev --turbopack --hostname 0.0.0.0",
-    "build": "node scripts/generate-rss.js && next build",
+    "dev": "node scripts/generate-rss.js && node scripts/generate-sitemap-simple.js && next dev --turbopack --hostname 0.0.0.0",
+    "build": "node scripts/generate-rss.js && node scripts/generate-sitemap-simple.js && next build",
     "start": "next start",
     "export": "next export",
     "lint": "next lint",
-    "generate-rss": "node scripts/generate-rss.js"
+    "generate-rss": "node scripts/generate-rss.js",
+    "generate-sitemap": "node scripts/generate-sitemap-simple.js",
+    "cleanup": "node scripts/clean-deps.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -46,6 +48,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.2",
+    "glob": "^10.4.5",
     "remark-gfm": "^4.0.1",
     "typescript": "^5"
   }
