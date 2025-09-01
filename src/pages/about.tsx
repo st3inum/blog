@@ -34,7 +34,48 @@ export default function About() {
     <>
       <Head>
         <title>About Me | {siteConfig.title}</title>
-        <meta name="description" content="About Fahim Tajwar Saikat" />
+        <meta name="description" content="About Fahim Tajwar Saikat - Software Engineer, Competitive Programmer, and Mathematics Enthusiast" />
+        
+        {/* Schema.org Person markup for better SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Fahim Tajwar Saikat",
+              "alternateName": "steinum",
+              "url": "https://steinum.com",
+              "image": "https://steinum.com/profile-image.jpg",
+              "sameAs": [
+                "https://github.com/st3inum",
+                "https://linkedin.com/in/steinum",
+                "https://st3inum.github.io",
+                "https://codeforces.com/profile/steinum",
+                "https://www.codechef.com/users/steinum",
+                "https://toph.co/u/steinum",
+                "https://vjudge.net/user/steinum",
+                "https://atcoder.jp/users/steinum",
+                "https://leetcode.com/u/steinum/"
+              ],
+              "jobTitle": "Software Engineer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Data Tree Technologies, LLC"
+              },
+              "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "Shahjalal University of Science and Technology",
+                "sameAs": "https://www.sust.edu/"
+              },
+              "description": "Software Engineer, Competitive Programmer, and Mathematics Enthusiast",
+              "email": "fahim.tajwar.saikat@gmail.com",
+              "telephone": "+8801990597310",
+              "nationality": "Bangladeshi",
+              "knowsAbout": ["Software Engineering", "Competitive Programming", "Algorithms", "Mathematics", "Problem Solving"]
+            })
+          }}
+        />
       </Head>
       
       <Container maxWidth="lg" sx={{ mt: 4, mb: 8 }}>

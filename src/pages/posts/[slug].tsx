@@ -156,20 +156,56 @@ export default function PostPage({ title, date, contentHtml, previousPost, nextP
       <Head>
         <title>{title}</title>
         <meta name="description" content={description || `${title} - Blog Post`} />
+        <meta name="keywords" content={`steinum, Fahim Tajwar Saikat, ${tags?.join(', ') || ''}`} />
+        <meta name="author" content="Fahim Tajwar Saikat" />
         
         {/* Open Graph Meta Tags for better social sharing */}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description || `${title} - Blog Post`} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.st3inum.com'}/posts/${slug}`} />
-        {cover && <meta property="og:image" content={cover.startsWith('http') ? cover : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.st3inum.com'}${cover}`} />}
+        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.com'}/posts/${slug}`} />
+        {cover && <meta property="og:image" content={cover.startsWith('http') ? cover : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.com'}${cover}`} />}
         
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         {authorTwitter && <meta name="twitter:creator" content={authorTwitter} />}
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description || `${title} - Blog Post`} />
-        {cover && <meta name="twitter:image" content={cover.startsWith('http') ? cover : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.st3inum.com'}${cover}`} />}
+        {cover && <meta name="twitter:image" content={cover.startsWith('http') ? cover : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.com'}${cover}`} />}
+        
+        {/* Schema.org BlogPosting markup for better SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": title,
+              "description": description || `${title} - Blog Post`,
+              "image": cover ? (cover.startsWith('http') ? cover : `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.com'}${cover}`) : null,
+              "datePublished": date,
+              "dateModified": date,
+              "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.com'}/posts/${slug}`,
+              "author": {
+                "@type": "Person",
+                "name": "Fahim Tajwar Saikat",
+                "alternateName": "steinum",
+                "url": "https://steinum.com/about"
+              },
+              "publisher": {
+                "@type": "Person",
+                "name": "Fahim Tajwar Saikat",
+                "alternateName": "steinum",
+                "url": "https://steinum.com"
+              },
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.com'}/posts/${slug}`
+              },
+              "keywords": tags?.join(', ') || ''
+            })
+          }}
+        />
       </Head>
       <Container maxWidth="md" sx={{ py: 4 }}>
         <Box mb={3}>
