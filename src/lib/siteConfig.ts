@@ -1,7 +1,7 @@
 export const siteConfig = {
   title: 'STEINUM\'s Blog',
   description: 'A blog about programming, mathematics, and technology',
-  siteUrl: 'https://st3inum.com',
+  siteUrl: 'https://steinum.dev',
   language: 'en',
   author: 'ST3INUM',
   social: {

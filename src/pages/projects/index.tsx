@@ -38,7 +38,7 @@ const projects: Project[] = [
     image: '/images/projects/portfolio.jpg',
     tags: ['Next.js', 'React', 'TypeScript', 'Material UI'],
     githubUrl: 'https://github.com/st3inum/blog',
-    liveUrl: 'https://st3inum.com',
+    liveUrl: 'https://steinum.dev',
     featured: true
   },
   {

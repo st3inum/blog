@@ -50,7 +50,7 @@ Hence we can find $f^{-1}{(x)}$.
 
 If we choose good $m$ , our probability of collision[that is $H(p)=H(q)$ while $p\neq q$] will be too much low.
 
-If you don't know how to `mod`, read [this](https://st3inum.github.io/posts/intro-to-modular-arithmetic/) article.
+If you don't know how to `mod`, read [this](https://steinum.dev/posts/Intro-to-modular-arithmetic/) article.
 
 {{< code language="cpp" title="Inverse Factorial" id="1" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/kattis/inversefactorial.cpp">}}{{< /code >}}
 

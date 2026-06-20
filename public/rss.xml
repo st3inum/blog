@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>MathBugs Blog</title>
-  <link>https://st3inum.com</link>
+  <link>https://steinum.dev</link>
   <description>Exploring mathematics, algorithms, and competitive programming with clear explanations and practical examples</description>
   <language>en</language>
   <lastBuildDate>Tue, 02 Sep 2025 04:29:16 GMT</lastBuildDate>
-  <atom:link href="https://st3inum.com/rss.xml" rel="self" type="application/rss+xml" />
+  <atom:link href="https://steinum.dev/rss.xml" rel="self" type="application/rss+xml" />
 
   <item>
-    <guid>https://st3inum.com/posts/toph-the-multiplayer-action-game</guid>
+    <guid>https://steinum.dev/posts/toph-the-multiplayer-action-game</guid>
     <title>The Multiplayer Action Game - Toph</title>
-    <link>https://st3inum.com/posts/toph-the-multiplayer-action-game</link>
+    <link>https://steinum.dev/posts/toph-the-multiplayer-action-game</link>
     <pubDate>Thu, 20 May 2021 09:18:06 GMT</pubDate>
     <description>Read more about The Multiplayer Action Game - Toph</description>
     <category>geometry</category>
     <category>toph</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/unnamed-trick-1</guid>
+    <guid>https://steinum.dev/posts/unnamed-trick-1</guid>
     <title>Unnamed Trick 1</title>
-    <link>https://st3inum.com/posts/unnamed-trick-1</link>
+    <link>https://steinum.dev/posts/unnamed-trick-1</link>
     <pubDate>Mon, 10 May 2021 21:01:48 GMT</pubDate>
     <description>Read more about Unnamed Trick 1</description>
     <category>math</category>
@@ -28,52 +28,52 @@
     <category>trick</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/atcoder-abc032C</guid>
+    <guid>https://steinum.dev/posts/atcoder-abc032C</guid>
     <title>AtCoder ABC-032 C</title>
-    <link>https://st3inum.com/posts/atcoder-abc032C</link>
+    <link>https://steinum.dev/posts/atcoder-abc032C</link>
     <pubDate>Mon, 10 May 2021 17:00:02 GMT</pubDate>
     <description>Read more about AtCoder ABC-032 C</description>
     <category>2-pointer</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/hashing2-double-hash</guid>
+    <guid>https://steinum.dev/posts/hashing2-double-hash</guid>
     <title>Hashing 2 - Double Hash</title>
-    <link>https://st3inum.com/posts/hashing2-double-hash</link>
+    <link>https://steinum.dev/posts/hashing2-double-hash</link>
     <pubDate>Mon, 10 May 2021 12:17:14 GMT</pubDate>
     <description>Read more about Hashing 2 - Double Hash</description>
     <category>hashing</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/kattis-inversefactorial</guid>
+    <guid>https://steinum.dev/posts/kattis-inversefactorial</guid>
     <title>Hashing 1 : Inverse Factorial - Kattis inversefactorial</title>
-    <link>https://st3inum.com/posts/kattis-inversefactorial</link>
+    <link>https://steinum.dev/posts/kattis-inversefactorial</link>
     <pubDate>Sat, 08 May 2021 14:13:49 GMT</pubDate>
     <description>Read more about Hashing 1 : Inverse Factorial - Kattis inversefactorial</description>
     <category>hashing</category>
     <category>kattis</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/uva-11526</guid>
+    <guid>https://steinum.dev/posts/uva-11526</guid>
     <title>Harmonic Lemma : H(n) - UVA 11526</title>
-    <link>https://st3inum.com/posts/uva-11526</link>
+    <link>https://steinum.dev/posts/uva-11526</link>
     <pubDate>Sat, 08 May 2021 10:08:11 GMT</pubDate>
     <description>Read more about Harmonic Lemma : H(n) - UVA 11526</description>
     <category>harmonic lemma</category>
     <category>uva</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/toph-modulo</guid>
+    <guid>https://steinum.dev/posts/toph-modulo</guid>
     <title>Modulo - Toph</title>
-    <link>https://st3inum.com/posts/toph-modulo</link>
+    <link>https://steinum.dev/posts/toph-modulo</link>
     <pubDate>Sat, 08 May 2021 08:57:26 GMT</pubDate>
     <description>Read more about Modulo - Toph</description>
     <category>number theory</category>
     <category>toph</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/uva-12775</guid>
+    <guid>https://steinum.dev/posts/uva-12775</guid>
     <title>Gift Dilemma - UVA 12775</title>
-    <link>https://st3inum.com/posts/uva-12775</link>
+    <link>https://steinum.dev/posts/uva-12775</link>
     <pubDate>Fri, 07 May 2021 07:01:54 GMT</pubDate>
     <description>Read more about Gift Dilemma - UVA 12775</description>
     <category>diophantine equation</category>
@@ -84,9 +84,9 @@
     <category>popoviciu</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/codechef-sandwich</guid>
+    <guid>https://steinum.dev/posts/codechef-sandwich</guid>
     <title>Long Sandwich - Codechef SANDWICH</title>
-    <link>https://st3inum.com/posts/codechef-sandwich</link>
+    <link>https://steinum.dev/posts/codechef-sandwich</link>
     <pubDate>Fri, 30 Apr 2021 16:03:31 GMT</pubDate>
     <description>Read more about Long Sandwich - Codechef SANDWICH</description>
     <category>combinatorics</category>
@@ -98,18 +98,18 @@
     <category>codechef</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/uva-11029</guid>
+    <guid>https://steinum.dev/posts/uva-11029</guid>
     <title>Leading and Trailing - UVA 11029</title>
-    <link>https://st3inum.com/posts/uva-11029</link>
+    <link>https://steinum.dev/posts/uva-11029</link>
     <pubDate>Tue, 27 Apr 2021 19:28:53 GMT</pubDate>
     <description>Read more about Leading and Trailing - UVA 11029</description>
     <category>math</category>
     <category>uva</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/uva-13041</guid>
+    <guid>https://steinum.dev/posts/uva-13041</guid>
     <title>Fraction and Sequence - UVA 13041</title>
-    <link>https://st3inum.com/posts/uva-13041</link>
+    <link>https://steinum.dev/posts/uva-13041</link>
     <pubDate>Tue, 27 Apr 2021 13:54:10 GMT</pubDate>
     <description>Read more about Fraction and Sequence - UVA 13041</description>
     <category>number theory</category>
@@ -120,9 +120,9 @@
     <category>codemarshal</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/codeforces-568a</guid>
+    <guid>https://steinum.dev/posts/codeforces-568a</guid>
     <title>Primes or Palindromes? - Codeforces - 568a</title>
-    <link>https://st3inum.com/posts/codeforces-568a</link>
+    <link>https://steinum.dev/posts/codeforces-568a</link>
     <pubDate>Mon, 26 Apr 2021 19:46:42 GMT</pubDate>
     <description>Read more about Primes or Palindromes? - Codeforces - 568a</description>
     <category>number theory</category>
@@ -130,9 +130,9 @@
     <category>codeforces</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/toph-complex-tashreef</guid>
+    <guid>https://steinum.dev/posts/toph-complex-tashreef</guid>
     <title>Complex Tashreef - Toph</title>
-    <link>https://st3inum.com/posts/toph-complex-tashreef</link>
+    <link>https://steinum.dev/posts/toph-complex-tashreef</link>
     <pubDate>Sun, 25 Apr 2021 19:06:15 GMT</pubDate>
     <description>Read more about Complex Tashreef - Toph</description>
     <category>digit dp</category>
@@ -142,27 +142,27 @@
     <category>toph</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/timus-1017</guid>
+    <guid>https://steinum.dev/posts/timus-1017</guid>
     <title>Staircases - Timus 1017</title>
-    <link>https://st3inum.com/posts/timus-1017</link>
+    <link>https://steinum.dev/posts/timus-1017</link>
     <pubDate>Thu, 22 Apr 2021 18:28:55 GMT</pubDate>
     <description>Basic Dp problem</description>
     <category>dp</category>
     <category>timus</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/codeforces-101201a</guid>
+    <guid>https://steinum.dev/posts/codeforces-101201a</guid>
     <title>Alphabet - Codeforces - 101201a</title>
-    <link>https://st3inum.com/posts/codeforces-101201a</link>
+    <link>https://steinum.dev/posts/codeforces-101201a</link>
     <pubDate>Thu, 22 Apr 2021 15:55:00 GMT</pubDate>
     <description>insert minimum number of character in a given string after which the resulting string contain a subsequence `abcdefgh...xyz`</description>
     <category>dp</category>
     <category>codeforces</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/uva-294</guid>
+    <guid>https://steinum.dev/posts/uva-294</guid>
     <title>Divisors - UVA 294</title>
-    <link>https://st3inum.com/posts/uva-294</link>
+    <link>https://steinum.dev/posts/uva-294</link>
     <pubDate>Thu, 22 Apr 2021 04:03:45 GMT</pubDate>
     <description>Read more about Divisors - UVA 294</description>
     <category>sieve</category>
@@ -170,9 +170,9 @@
     <category>segmented sieve</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/toph-prime-factor-love</guid>
+    <guid>https://steinum.dev/posts/toph-prime-factor-love</guid>
     <title>Prime Factor Love - Toph</title>
-    <link>https://st3inum.com/posts/toph-prime-factor-love</link>
+    <link>https://steinum.dev/posts/toph-prime-factor-love</link>
     <pubDate>Wed, 21 Apr 2021 20:31:20 GMT</pubDate>
     <description>Find sum of sum-of-divisor from 1 to n</description>
     <category>sieve</category>
@@ -181,9 +181,9 @@
     <category>toph</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/codeforces-1257g</guid>
+    <guid>https://steinum.dev/posts/codeforces-1257g</guid>
     <title>Divisor Set - Codeforces - 1257g</title>
-    <link>https://st3inum.com/posts/codeforces-1257g</link>
+    <link>https://steinum.dev/posts/codeforces-1257g</link>
     <pubDate>Wed, 21 Apr 2021 17:41:52 GMT</pubDate>
     <description>knapsack dp with ntt</description>
     <category>ntt</category>
@@ -194,18 +194,18 @@
     <category>codeforces</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/Introductory Problems</guid>
+    <guid>https://steinum.dev/posts/Introductory Problems</guid>
     <title>Modular Arithmetic: Introductory Problems</title>
-    <link>https://st3inum.com/posts/Introductory Problems</link>
+    <link>https://steinum.dev/posts/Introductory Problems</link>
     <pubDate>Tue, 20 Apr 2021 21:26:08 GMT</pubDate>
     <description>Problems on basics of modular arithmetic</description>
     <category>discrete-math</category>
     <category>math</category>
   </item>
   <item>
-    <guid>https://st3inum.com/posts/Intro-to-modular-arithmetic</guid>
+    <guid>https://steinum.dev/posts/Intro-to-modular-arithmetic</guid>
     <title>Modular Arithmetic: Introduction</title>
-    <link>https://st3inum.com/posts/Intro-to-modular-arithmetic</link>
+    <link>https://steinum.dev/posts/Intro-to-modular-arithmetic</link>
     <pubDate>Mon, 19 Apr 2021 21:26:08 GMT</pubDate>
     <description>Basics of modular arithmetic</description>
     <category>discrete-math</category>

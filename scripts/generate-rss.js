@@ -13,7 +13,7 @@ const matter = require('gray-matter');
 const siteConfig = {
   title: 'MathBugs Blog',
   description: 'Exploring mathematics, algorithms, and competitive programming with clear explanations and practical examples',
-  siteUrl: 'https://st3inum.com', // Update this to your actual domain
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://steinum.dev',
   language: 'en',
   author: 'steinum',
 };

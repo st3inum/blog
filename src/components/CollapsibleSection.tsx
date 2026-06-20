@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, Divider, Button, Collapse } from '@mui/material';
+import { Box, Typography, Divider, Button } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import AboutCard, { AboutCardProps } from './AboutCard';
@@ -25,6 +25,7 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({
   gridColumns = { xs: '1fr', md: '1fr 1fr' }
 }) => {
   const [expanded, setExpanded] = useState(false);
+  const displayedItems = expanded ? [...visibleItems, ...hiddenItems] : visibleItems;
 
   const toggleExpanded = () => {
     setExpanded(!expanded);
@@ -40,31 +41,17 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({
       </Box>
       <Divider sx={{ mb: 2 }} />
       
-      {/* Always visible items */}
+      {/* Cards */}
       <Box sx={{ 
         display: 'grid', 
         gridTemplateColumns: gridColumns, 
         gap: 2,
         mb: 2
       }}>
-        {visibleItems.map((item, index) => (
-          <AboutCard key={index} {...item} />
+        {displayedItems.map((item, index) => (
+          <AboutCard key={`${expanded ? 'expanded' : 'visible'}-${index}`} {...item} />
         ))}
       </Box>
-
-      {/* Collapsible items */}
-      <Collapse in={expanded}>
-        <Box sx={{ 
-          display: 'grid', 
-          gridTemplateColumns: gridColumns, 
-          gap: 2,
-          mb: 2
-        }}>
-          {hiddenItems.map((item, index) => (
-            <AboutCard key={`hidden-${index}`} {...item} />
-          ))}
-        </Box>
-      </Collapse>
 
       {/* Read More/Less Button */}
       {hiddenItems.length > 0 && (

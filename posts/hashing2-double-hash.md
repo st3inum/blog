@@ -13,9 +13,9 @@ description: ''
 showFullContent: false
 ---
 
-If you don't read [this](https://st3inum.github.io/posts/kattis-inversefactorial/) blog or solved [Kattis - inversefactorial](https://open.kattis.com/problems/inversefactorial) on your own, complete these two tasks at first.
+If you don't read [this](https://steinum.dev/posts/kattis-inversefactorial/) blog or solved [Kattis - inversefactorial](https://open.kattis.com/problems/inversefactorial) on your own, complete these two tasks at first.
 
-In our [previous part](https://st3inum.github.io/posts/kattis-inversefactorial/), we take `m=1000000009` in our solution. But if we take  `m=1000000011` or `m=1000000125` what would happen?
+In our [previous part](https://steinum.dev/posts/kattis-inversefactorial/), we take `m=1000000009` in our solution. But if we take  `m=1000000011` or `m=1000000125` what would happen?
 
 If you are using these/some random values and getting WA, you are on the right track.
 
