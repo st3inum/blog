@@ -12,6 +12,8 @@ import {
 } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import TelegramIcon from '@mui/icons-material/Telegram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -34,7 +36,7 @@ export default function About() {
     <>
       <Head>
         <title>About Me | {siteConfig.title}</title>
-        <meta name="description" content="About Fahim Tajwar Saikat - Software Engineer, Competitive Programmer, and Mathematics Enthusiast" />
+        <meta name="description" content="About Fahim Tajwar Saikat - Machine Learning Engineer Trainee, Software Engineer, Competitive Programmer, and Contest Coordinator" />
         
         {/* Schema.org Person markup for better SEO */}
         <script
@@ -50,29 +52,30 @@ export default function About() {
               "sameAs": [
                 "https://github.com/st3inum",
                 "https://linkedin.com/in/steinum",
-                "https://st3inum.github.io",
+                "https://steinum.dev",
                 "https://codeforces.com/profile/steinum",
                 "https://www.codechef.com/users/steinum",
                 "https://toph.co/u/steinum",
                 "https://vjudge.net/user/steinum",
                 "https://atcoder.jp/users/steinum",
-                "https://leetcode.com/u/steinum/"
+                "https://leetcode.com/u/steinum/",
+                "https://t.me/steinum"
               ],
-              "jobTitle": "Software Engineer",
+              "jobTitle": "Machine Learning Engineer Trainee",
               "worksFor": {
                 "@type": "Organization",
-                "name": "Data Tree Technologies, LLC"
+                "name": "Huawei"
               },
               "alumniOf": {
                 "@type": "EducationalOrganization",
                 "name": "Shahjalal University of Science and Technology",
                 "sameAs": "https://www.sust.edu/"
               },
-              "description": "Software Engineer, Competitive Programmer, and Mathematics Enthusiast",
+              "description": "Machine Learning Engineer Trainee, Software Engineer, Competitive Programmer, and Contest Coordinator",
               "email": "fahim.tajwar.saikat@gmail.com",
-              "telephone": "+8801990597310",
+              "telephone": "+358449567901",
               "nationality": "Bangladeshi",
-              "knowsAbout": ["Software Engineering", "Competitive Programming", "Algorithms", "Mathematics", "Problem Solving"]
+              "knowsAbout": ["Machine Learning", "Computer Vision", "Software Engineering", "Competitive Programming", "Algorithms", "Mathematics", "Problem Solving", "Contest Coordination"]
             })
           }}
         />
@@ -118,9 +121,18 @@ export default function About() {
             transition: 'transform 0.2s, box-shadow 0.2s', 
             '&:hover': { boxShadow: 5 } 
           }}>
-            <CardContent>
-              <Box display="flex" alignItems="center" mb={2}>
-                <Box mr={2} sx={{ position: 'relative', width: 120, height: 120, borderRadius: '50%', overflow: 'hidden', boxShadow: '0 4px 10px rgba(0,0,0,0.15)' }}>
+            <CardContent sx={{ p: { xs: 2, sm: 3 } }}>
+              <Box
+                display="flex"
+                alignItems="center"
+                mb={2}
+                sx={{
+                  flexDirection: { xs: 'column', sm: 'row' },
+                  textAlign: { xs: 'center', sm: 'left' },
+                  gap: { xs: 2, sm: 0 }
+                }}
+              >
+                <Box sx={{ position: 'relative', width: { xs: 96, sm: 120 }, height: { xs: 96, sm: 120 }, flexShrink: 0, borderRadius: '50%', overflow: 'hidden', boxShadow: '0 4px 10px rgba(0,0,0,0.15)', mr: { xs: 0, sm: 2 } }}>
                   <Box 
                     component="div"
                     sx={{ 
@@ -131,46 +143,60 @@ export default function About() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       color: 'white',
-                      fontSize: '2.5rem',
+                      fontSize: { xs: '2rem', sm: '2.5rem' },
                       fontWeight: 'bold'
                     }}
                   >
                     FS
                   </Box>
                 </Box>
-                <Box>
-                  <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 600 }}>
+                <Box sx={{ minWidth: 0, width: '100%' }}>
+                  <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 600, fontSize: { xs: '1.85rem', sm: '2.125rem' } }}>
                     Fahim Tajwar Saikat
                   </Typography>
-                  <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} flexWrap="wrap">
-                    <Box display="flex" alignItems="center">
+                  <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} flexWrap="wrap" alignItems={{ xs: 'center', sm: 'flex-start' }}>
+                    <Box display="flex" alignItems="center" sx={{ minWidth: 0, maxWidth: '100%' }}>
                       <EmailIcon fontSize="small" sx={{ mr: 0.5, color: '#2196F3' }} />
-                      <Link href="mailto:fahim.tajwar.saikat@gmail.com" sx={{ '&:hover': { color: '#2196F3' } }}>
+                      <Link href="mailto:fahim.tajwar.saikat@gmail.com" sx={{ overflowWrap: 'anywhere', '&:hover': { color: '#2196F3' } }}>
                         fahim.tajwar.saikat@gmail.com
                       </Link>
                     </Box>
-                    <Box display="flex" alignItems="center">
+                    <Box display="flex" alignItems="center" sx={{ minWidth: 0, maxWidth: '100%' }}>
                       <PhoneIcon fontSize="small" sx={{ mr: 0.5, color: '#2196F3' }} />
-                      <Typography variant="body2">+8801990597310</Typography>
+                      <Link href="tel:+358449567901" sx={{ overflowWrap: 'anywhere', '&:hover': { color: '#2196F3' } }}>
+                        +358449567901
+                      </Link>
+                    </Box>
+                    <Box display="flex" alignItems="center" sx={{ minWidth: 0, maxWidth: '100%' }}>
+                      <WhatsAppIcon fontSize="small" sx={{ mr: 0.5, color: '#25D366' }} />
+                      <Link href="https://wa.me/8801990597310" target="_blank" rel="noopener" sx={{ overflowWrap: 'anywhere', '&:hover': { color: '#2196F3' } }}>
+                        +8801990597310
+                      </Link>
+                    </Box>
+                    <Box display="flex" alignItems="center" sx={{ minWidth: 0, maxWidth: '100%' }}>
+                      <TelegramIcon fontSize="small" sx={{ mr: 0.5, color: '#229ED9' }} />
+                      <Link href="https://t.me/steinum" target="_blank" rel="noopener" sx={{ overflowWrap: 'anywhere', '&:hover': { color: '#2196F3' } }}>
+                        telegram:steinum
+                      </Link>
                     </Box>
                   </Stack>
-                  <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} mt={1} flexWrap="wrap">
-                    <Box display="flex" alignItems="center">
+                  <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} mt={1} flexWrap="wrap" alignItems={{ xs: 'center', sm: 'flex-start' }}>
+                    <Box display="flex" alignItems="center" sx={{ minWidth: 0, maxWidth: '100%' }}>
                       <LinkedInIcon fontSize="small" sx={{ mr: 0.5, color: '#2196F3' }} />
-                      <Link href="https://linkedin.com/in/steinum" target="_blank" rel="noopener" sx={{ '&:hover': { color: '#2196F3' } }}>
-                        linkedin.com/in/steinum
+                      <Link href="https://linkedin.com/in/steinum" target="_blank" rel="noopener" sx={{ overflowWrap: 'anywhere', '&:hover': { color: '#2196F3' } }}>
+                        linkedin:steinum
                       </Link>
                     </Box>
-                    <Box display="flex" alignItems="center">
+                    <Box display="flex" alignItems="center" sx={{ minWidth: 0, maxWidth: '100%' }}>
                       <GitHubIcon fontSize="small" sx={{ mr: 0.5, color: '#2196F3' }} />
-                      <Link href="https://github.com/st3inum" target="_blank" rel="noopener" sx={{ '&:hover': { color: '#2196F3' } }}>
-                        github.com/st3inum
+                      <Link href="https://github.com/st3inum" target="_blank" rel="noopener" sx={{ overflowWrap: 'anywhere', '&:hover': { color: '#2196F3' } }}>
+                        github:st3inum
                       </Link>
                     </Box>
-                    <Box display="flex" alignItems="center">
+                    <Box display="flex" alignItems="center" sx={{ minWidth: 0, maxWidth: '100%' }}>
                       <LanguageIcon fontSize="small" sx={{ mr: 0.5, color: '#2196F3' }} />
-                      <Link href="https://st3inum.github.io" target="_blank" rel="noopener" sx={{ '&:hover': { color: '#2196F3' } }}>
-                        st3inum.github.io
+                      <Link href="https://steinum.dev" target="_blank" rel="noopener" sx={{ overflowWrap: 'anywhere', '&:hover': { color: '#2196F3' } }}>
+                        steinum.dev
                       </Link>
                     </Box>
                   </Stack>
@@ -188,16 +214,25 @@ export default function About() {
           gridColumns={{ xs: '1fr', md: '1fr' }}
           items={[
             {
+              title: "Machine Learning Engineer Trainee",
+              subtitle: "Huawei",
+              period: "Mar 2026 – Present | Tampere, Finland",
+              description: "Working with camera research and computational imaging workflows for mobile camera pipelines, including image restoration, super-resolution, and color-transfer experimentation.",
+              tech: "Python, PyTorch, NumPy, Scikit-learn, Transformer-based models, Diffusion models, fine-tuning, LoRA, FLUX"
+            },
+            {
               title: "Software Engineer",
-              subtitle: "Data Tree Technologies, LLC",
-              period: "Aug 2023 – Present | New York, USA (Remote)",
-              tech: "Node.js, Express.js, React, Redux-Saga, AWS (Lambda, S3, API Gateway), MongoDB"
+              subtitle: "Kinetik.care via Data Tree Technologies, LLC",
+              period: "Sep 2023 – Feb 2026 | New York, USA (Remote)",
+              description: "Built backend and cloud systems for healthcare transportation workflows, including voice automation, external API integrations, monitoring, alerting, data ingestion, and security-focused backend improvements.",
+              tech: "Node.js, Express.js, React, Redux-Saga, AWS (Lambda, ECS, S3, SQS, API Gateway), MongoDB, Twilio, ElevenLabs API"
             },
             {
               title: "Machine Learning Engineer",
               subtitle: "Inverse.AI",
               period: "Sep 2021 – Apr 2022 | Sylhet, Bangladesh",
-              tech: "Python, NumPy, TensorFlow, Keras, PyTorch, Scikit-learn, Java, C++"
+              description: "Worked on production computer-vision and audio-processing features for consumer photo and media applications, including segmentation, deep learning model development, distributed model training, and deployment-oriented optimization.",
+              tech: "Python, C++, Java, NumPy, TensorFlow, Keras, PyTorch, Scikit-learn, DeepLabV3+, CNN, RNN, distributed model training"
             }
             // Uncomment to add the intern position:
             // {
@@ -306,14 +341,12 @@ export default function About() {
             {
               title: "Asia Dhaka Regional Site Online Preliminary Contest",
               subtitle: "Team: BerlekampMassey",
-              description: "Secired 2nd position among 1300+ teams",
+              description: "Secured 2nd position among 1300+ teams",
               link: {
                 url: "https://icpc.global/regionals/finder/Dhaka-Preliminary-2021/standings",
                 text: "Standings"
               }
-            }
-          ]}
-          hiddenItems={[
+            },
             {
               title: "BUET Inter University Programming Contest 2022",
               subtitle: "Team: BerlekampMassey",
@@ -322,7 +355,9 @@ export default function About() {
                 url: "https://toph.co/c/buet-inter-university-2022/standings",
                 text: "Standings"
               }
-            },
+            }
+          ]}
+          hiddenItems={[
             {
               title: "Cefalo CodeFiesta 2022: AUST IUPC",
               subtitle: "Team: BerlekampMassey",
@@ -477,27 +512,27 @@ export default function About() {
           skillCategories={[
             {
               category: "Languages",
-              skills: ["C", "C++","Java", "JavaScript (ES6+)", "Python", "PHP"]
+              skills: ["C", "C++", "Java", "Python", "JavaScript", "TypeScript", "PHP", "SQL"]
             },
             {
-              category: "Backend",
-              skills: ["Node.js", "Express.js", "Serverless Framework", "Django"]
+              category: "Machine Learning & Computer Vision",
+              skills: ["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "NumPy", "DeepLabV3+", "CNN", "RNN", "Transformer-based models", "Diffusion models", "fine-tuning", "LoRA", "FLUX"]
+            },
+            {
+              category: "Backend & APIs",
+              skills: ["Node.js", "Express.js", "Django", "Serverless Framework", "REST APIs", "Webhooks", "Twilio", "ElevenLabs API"]
             },
             {
               category: "Frontend",
-              skills: ["HTML", "CSS", "Bootstrap", "React.js", "Ant Design", "Redux-Saga", "Material-UI", "Next.js", "Tailwind CSS"]
+              skills: ["React.js", "Next.js", "Redux-Saga", "Material UI", "Ant Design", "Bootstrap", "Tailwind CSS", "HTML", "CSS"]
             },
             {
-              category: "Cloud",
-              skills: ["AWS (Lambda, API Gateway, S3, SES, SQS)"]
+              category: "Cloud, Data & DevOps",
+              skills: ["AWS Lambda", "AWS ECS", "API Gateway", "S3", "SQS", "SES", "MongoDB", "PostgreSQL", "MySQL", "Docker", "GitHub Actions", "Linux"]
             },
             {
-              category: "Databases",
-              skills: ["MongoDB", "MySQL", "PostgreSQL"]
-            },
-            {
-              category: "Tools & OS",
-              skills: ["Git", "GitHub Actions", "Travis CI", "Linux"]
+              category: "Competitive Programming",
+              skills: ["Algorithms", "Data Structures", "Number Theory", "Dynamic Programming", "Graph Algorithms", "String Algorithms", "Geometry", "Problem Setting", "Contest Coordination"]
             }
           ]}
         />
@@ -546,6 +581,58 @@ export default function About() {
           icon={<VolunteerActivismIcon color="primary" sx={{ mr: 1 }} />}
           visibleItems={[
             {
+              title: "Organizer and Instructor at Rajshahi University of Engineering & Technology (RUET) Competitive Programming Camp 2025",
+              customContent: (
+                <ul style={{ marginLeft: "1rem" }}>
+                  <li>Organized and instructed an intensive 5-day competitive programming camp.</li>
+                  <li>Delivered advanced training on competitive programming topics and contest-preparation strategies.</li>
+                  <li>Designed camp activities around focused learning, team contests, and post-contest discussions.</li>
+                </ul>
+              )
+            },
+            {
+              title: "Contest Coordinator and Technical Lead at Inter University Programming Contest - MU CSE Fest 2025",
+              customContent: (
+                <ul style={{ marginLeft: "1rem" }}>
+                  <li>Coordinated contest execution and technical operations for the event.</li>
+                  <li>Managed technical setup and contest-day support.</li>
+                  <li>Contest Link: <a href="https://toph.co/c/inter-university-mu-cse-fest-2025"><u>Inter University Programming Contest - MU CSE Fest 2025</u></a></li>
+                </ul>
+              )
+            },
+            {
+              title: "Technical Lead at CUET Inter University Programming Contest (IUPC) 2025",
+              customContent: (
+                <ul style={{ marginLeft: "1rem" }}>
+                  <li>Worked as technical lead for contest execution and technical operations.</li>
+                  <li>Supported technical setup, contest-floor readiness, and issue handling.</li>
+                  <li>Contest Link: <a href="https://toph.co/c/cuet-iupc-2025"><u>CUET Inter University Programming Contest (IUPC) 2025</u></a></li>
+                </ul>
+              )
+            },
+            {
+              title: "Coordinator at National High School Programming Contest 2026 Regional Round",
+              customContent: (
+                <ul style={{ marginLeft: "1rem" }}>
+                  <li>Coordinated a large regional programming contest with 2,500 participants.</li>
+                  <li>Supported contest execution, participant flow, and technical coordination.</li>
+                  <li>Contest Link: <a href="https://toph.co/c/national-high-school-2026-regional-round"><u>National High School Programming Contest 2026 Regional Round</u></a></li>
+                </ul>
+              )
+            },
+            {
+              title: "Contest Coordinator and Technical Lead at National High School Programming Contest 2026 Final Round",
+              customContent: (
+                <ul style={{ marginLeft: "1rem" }}>
+                  <li>Coordinated contest execution and technical operations for the final round.</li>
+                  <li>Managed technical setup, contest-day support, and issue resolution.</li>
+                  <li>Contest Link: <a href="https://toph.co/c/national-high-school-2026-final-round"><u>National High School Programming Contest 2026 Final Round</u></a></li>
+                </ul>
+              )
+            }
+          ]}
+          hiddenItems={[
+            {
               title: "Coordinator, Judge, and Setter at Khulna Regional Inter University Programming Contest (KRIUPC)",
               customContent: (
                 <ul style={{ marginLeft: "1rem" }}>
@@ -586,9 +673,7 @@ export default function About() {
                   <li>Contest Link: <a href="https://codeforces.com/gym/104283"><u>Contest Based on Brain Craft Intra SUST Programming Contest 2023</u></a></li>
                 </ul>
               )
-            }
-          ]}
-          hiddenItems={[
+            },
             {
               title: "Coordinator and Setter at LU CSE Carnival Chapter-2",
               customContent: (
