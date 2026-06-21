@@ -10,10 +10,11 @@ tags:
   - stirling numbers
   - dp
   - lagrange interpolation
+  - ntt
 keywords:
   - stirling numbers
   - binomial theorem
-description: Sum binomial-weighted powers using Stirling numbers or DP
+description: Sum binomial-weighted powers using Stirling numbers, DP, or Lagrange interpolation
 showFullContent: false
 ---
 
@@ -27,7 +28,7 @@ $$
 
 under modulo $1000000007$.
 
-Here $n\le 10^9,\ k\le 5000$.
+Here $n\le 10^9,\ 1\le k\le 5000$.
 
 ## Solution 1: Stirling Numbers
 
@@ -63,6 +64,14 @@ So just calculate Stirling numbers with:
 $$
 S(i,j)=jS(i-1,j)+S(i-1,j-1)
 $$
+
+This can also be extended with NTT. Since:
+
+$$
+S(k,j)=\frac{1}{j!}\sum_{i=0}^{j}{(-1)^{j-i}\binom{j}{i}i^k}
+$$
+
+the Stirling row can be calculated as convolution. So if polynomial size is $n$, this part becomes $O(n\log n)$; for this problem it means $O(k\log k)$.
 
 {{< code language="cpp" title="Solution 1: Stirling Numbers" id="1" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codeforces/932e-stirling.cpp">}}{{< /code >}}
 
@@ -112,6 +121,8 @@ $$
 where $P_k(n)$ is a polynomial of degree $k$.
 
 So we can calculate $P_k(0),P_k(1),\dots,P_k(k)$ by any $O(k^2)$ way and interpolate $P_k(n)$.
+
+{{< code language="cpp" title="Solution 3: Lagrange" id="3" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codeforces/932e-lagrange.cpp">}}{{< /code >}}
 
 ## Reference:
 
