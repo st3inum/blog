@@ -19,9 +19,9 @@ import {
   SelectChangeEvent
 } from '@mui/material';
 import { getAllPosts, PostMeta } from '@/lib/posts';
+import { firstSentencePreview, truncatePreview } from '@/lib/preview';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import MathPreview from '@/components/MathPreview';
 
 interface PostWithContent extends PostMeta {
   contentPreview?: string;
@@ -106,19 +106,12 @@ export default function BlogPage({ posts }: BlogPageProps) {
 
   // Extract content preview from a post
   const getContentPreview = (post: PostWithContent, maxLength: number = 200): string => {
-    // First try the contentPreview if available
-    if (post.contentPreview) {
-      return post.contentPreview.length > maxLength 
-        ? post.contentPreview.substring(0, maxLength) + '...'
-        : post.contentPreview;
-    }
-    // Then try description
     if (post.description) {
-      return post.description.length > maxLength 
-        ? post.description.substring(0, maxLength) + '...'
-        : post.description;
+      return truncatePreview(post.description, maxLength);
     }
-    // Fallback message
+    if (post.contentPreview) {
+      return truncatePreview(post.contentPreview, maxLength);
+    }
     return 'Click to read more about this post...';
   };
 
@@ -372,43 +365,9 @@ export const getStaticProps: GetStaticProps = async () => {
           const fileContents = fs.readFileSync(fullPath, 'utf8');
           const { content } = matter.default(fileContents);
           
-          // Extract first paragraph or first 300 characters as preview
-          let contentPreview = '';
-          
-          // Clean markdown and extract preview
-          const cleanContent = content
-            .replace(/^#{1,6}\s+.*$/gm, '') // Remove headers
-            .replace(/!\[.*?\]\(.*?\)/g, '') // Remove images
-            .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Convert links to text
-            .replace(/\$\$[\s\S]*?\$\$/g, '[mathematical expression]') // Remove display math
-            .replace(/\$[^$\n]*\$/g, '[math]') // Remove inline math
-            .replace(/\\\([\s\S]*?\\\)/g, '[mathematical expression]') // Remove \(...\) math
-            .replace(/\\\[[\s\S]*?\\\]/g, '[mathematical expression]') // Remove \[...\] math
-            .replace(/\\begin\{[^}]+\}[\s\S]*?\\end\{[^}]+\}/g, '[mathematical expression]') // Remove LaTeX environments
-            .replace(/\\[a-zA-Z]+\{[^}]*\}/g, '[math notation]') // Remove LaTeX commands
-            .replace(/\\[a-zA-Z]+/g, '') // Remove simple LaTeX commands
-            .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold
-            .replace(/\*(.*?)\*/g, '$1') // Remove italic
-            .replace(/`([^`]+)`/g, '$1') // Remove inline code
-            .replace(/```[\s\S]*?```/g, '[code block]') // Replace code blocks with placeholder
-            .replace(/{{<[^>]*>}}/g, '') // Remove Hugo shortcodes
-            .replace(/\n\s*\n/g, ' ') // Replace multiple newlines with space
-            .replace(/\s+/g, ' ') // Replace multiple spaces with single space
-            .replace(/\[math\]\s*\[math\]/g, '[mathematical expressions]') // Combine adjacent math placeholders
-            .replace(/\[mathematical expression\]\s*\[mathematical expression\]/g, '[mathematical expressions]') // Combine adjacent math placeholders
-            .trim();
-          
-          // Get first sentence or first 300 characters
-          const sentences = cleanContent.split(/[.!?]+/);
-          if (sentences.length > 0 && sentences[0].length > 20) {
-            contentPreview = sentences[0].trim() + (sentences.length > 1 ? '.' : '');
-          } else {
-            contentPreview = cleanContent.substring(0, 300);
-          }
-          
           return {
             ...post,
-            contentPreview: contentPreview || post.description || 'Click to read more about this post...'
+            contentPreview: firstSentencePreview(content, 300) || post.description || 'Click to read more about this post...'
           };
         }
       } catch (error) {

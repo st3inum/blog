@@ -5,12 +5,12 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
-  - hashing
   - kattis
+  - hashing
 keywords:
   - Modular Arithmetic
   - ''
-description: ''
+description: Recover n from a huge n! value using modular hashing
 showFullContent: false
 ---
 

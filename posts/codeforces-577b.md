@@ -5,8 +5,10 @@ author: ''
 authorTwitter: ''
 cover: ''
 tags:
-  - ''
-  - ''
+  - codeforces
+  - dp
+  - pigeonhole principle
+  - modular arithmetic
 keywords:
   - ''
   - ''

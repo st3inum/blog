@@ -10,6 +10,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import EmailIcon from "@mui/icons-material/Email";
 import { useState } from "react";
+import { copyTextToClipboard } from "../lib/clipboard";
 
 interface EnhancedSocialShareProps {
   url: string;
@@ -63,17 +64,13 @@ export default function EnhancedSocialShare({ url, title, description = "", tags
   // Note: encodedDescription and other encoded variables are used in handleCustomShare
   
   // Function to copy content to clipboard
-  const copyToClipboard = (content: string, message: string = "Link copied to clipboard!") => {
-    if (typeof navigator !== "undefined") {
-      navigator.clipboard.writeText(content).then(
-        () => {
-          setSnackMessage(message);
-          setSnackOpen(true);
-        },
-        (err) => {
-          console.error("Could not copy text: ", err);
-        }
-      );
+  const copyToClipboard = async (content: string, message: string = "Link copied to clipboard!") => {
+    try {
+      await copyTextToClipboard(content);
+      setSnackMessage(message);
+      setSnackOpen(true);
+    } catch (err) {
+      console.error("Could not copy text: ", err);
     }
   };
 

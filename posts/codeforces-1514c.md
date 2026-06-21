@@ -5,8 +5,9 @@ author: ''
 authorTwitter: ''
 cover: ''
 tags:
-  - ''
-  - ''
+  - codeforces
+  - number theory
+  - modular arithmetic
 keywords:
   - ''
   - ''

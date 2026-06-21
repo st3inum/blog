@@ -5,11 +5,12 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
+  - kattis
   - hashing
 keywords:
   - ''
   - ''
-description: ''
+description: Reduce hash collision probability using double hashing
 showFullContent: false
 ---
 

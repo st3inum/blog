@@ -5,12 +5,14 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
-  - number theory
   - toph
+  - number theory
+  - priority queue
+  - amortized analysis
 keywords:
   - ''
   - ''
-description: ''
+description: Process repeated modulo updates with an amortized priority queue
 showFullContent: false
 ---
 

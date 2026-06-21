@@ -6,6 +6,7 @@ import RedditIcon from "@mui/icons-material/Reddit";
 import LinkIcon from "@mui/icons-material/Link";
 import ShareIcon from "@mui/icons-material/Share";
 import { useState } from "react";
+import { copyTextToClipboard } from "../lib/clipboard";
 
 interface SocialShareProps {
   url: string;
@@ -52,16 +53,12 @@ export default function SocialShare({ url, title, description = "" }: SocialShar
   const redditUrl = `https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}`;
   
   // Function to copy the current URL to clipboard
-  const copyToClipboard = () => {
-    if (typeof navigator !== "undefined") {
-      navigator.clipboard.writeText(absoluteUrl).then(
-        () => {
-          setSnackOpen(true);
-        },
-        (err) => {
-          console.error("Could not copy text: ", err);
-        }
-      );
+  const copyToClipboard = async () => {
+    try {
+      await copyTextToClipboard(absoluteUrl);
+      setSnackOpen(true);
+    } catch (err) {
+      console.error("Could not copy text: ", err);
     }
   };
   

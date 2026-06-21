@@ -5,12 +5,12 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
-  - dp
   - timus
+  - dp
 keywords:
   - ''
   - ''
-description: Basic Dp problem
+description: Count staircases using integer partition DP
 showFullContent: false
 ---
 

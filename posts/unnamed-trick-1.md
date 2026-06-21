@@ -5,13 +5,15 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
+  - codeforces
+  - toph
   - math
   - counting
   - trick
 keywords:
   - ''
   - ''
-description: ''
+description: Convert pair-counting equations into frequency-map solutions
 showFullContent: false
 ---
 

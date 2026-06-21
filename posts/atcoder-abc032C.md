@@ -5,11 +5,12 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
+  - atcoder
   - 2-pointer
 keywords:
   - ''
   - ''
-description: ''
+description: Find the longest subarray with product at most k using two pointers
 showFullContent: false
 ---
 

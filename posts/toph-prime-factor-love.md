@@ -5,14 +5,14 @@ author: ''
 authorTwitter: ''
 cover: ''
 tags:
+  - toph
   - sieve
   - harmonic lemma
   - number theory
-  - toph
 keywords:
   - ''
   - ''
-description: Find sum of sum-of-divisor from 1 to n
+description: Find prime-factor sum using harmonic lemma and sieve
 showFullContent: false
 ---
 

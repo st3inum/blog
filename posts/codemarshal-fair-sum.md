@@ -1,4 +1,9 @@
 ---
+title: Fair Sum - Codemarshal
+tags:
+  - codemarshal
+  - math
+  - summation
 draft: true
 ---
 <!-- \sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\(a_i-a_j\)^{2}}}\\

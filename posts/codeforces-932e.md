@@ -5,8 +5,9 @@ author: ''
 authorTwitter: ''
 cover: ''
 tags:
-  - ''
-  - ''
+  - codeforces
+  - combinatorics
+  - stirling numbers
 keywords:
   - ''
   - ''

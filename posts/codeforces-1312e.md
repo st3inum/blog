@@ -5,8 +5,8 @@ author: ''
 authorTwitter: ''
 cover: ''
 tags:
-  - ''
-  - ''
+  - codeforces
+  - dp
 keywords:
   - ''
   - ''

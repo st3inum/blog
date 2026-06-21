@@ -5,11 +5,11 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
+  - codeforces
   - mst
   - graph
   - boruvka
   - trie
-  - codeforces
 keywords:
   - Boruvka
   - Minimum Spanning Tree

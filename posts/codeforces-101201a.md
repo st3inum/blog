@@ -5,15 +5,13 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
-  - dp
   - codeforces
+  - dp
 keywords:
   - acm icpc
   - pacific northwest regional
   - 2016-2017
-description: >-
-  insert minimum number of character in a given string after which the resulting string contain a subsequence
-  `abcdefgh...xyz`
+description: Find minimum insertions needed to make alphabet a subsequence
 showFullContent: false
 ---
 

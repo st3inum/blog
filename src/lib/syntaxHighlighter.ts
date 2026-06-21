@@ -1,4 +1,6 @@
 // Modern syntax highlighter using Prism.js with theme support
+import { copyTextToClipboard } from './clipboard';
+
 interface PrismLanguages {
   [key: string]: unknown;
 }
@@ -391,7 +393,7 @@ function addCopyButton(codeElement: HTMLElement) {
     try {
       // Get fresh code text at copy time
       const codeText = getCleanCodeText(codeElement);
-      await navigator.clipboard.writeText(codeText);
+      await copyTextToClipboard(codeText);
       
       // Show success feedback
       const originalHTML = copyButton.innerHTML;

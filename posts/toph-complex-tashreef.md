@@ -5,15 +5,15 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
+  - toph
   - digit dp
   - number theory
   - lucas theorem
   - divide and conquer
-  - toph
 keywords:
   - ''
   - ''
-description: ''
+description: Count even binomial coefficients in a range using Lucas theorem
 showFullContent: false
 ---
 

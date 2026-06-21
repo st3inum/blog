@@ -5,8 +5,10 @@ author: ''
 authorTwitter: ''
 cover: ''
 tags:
-  - ''
-  - ''
+  - spoj
+  - number theory
+  - factorial
+  - divisors
 keywords:
   - ''
   - ''

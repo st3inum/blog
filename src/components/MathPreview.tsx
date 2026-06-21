@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Typography } from '@mui/material';
+import { cleanMarkdownPreview, truncatePreview } from '@/lib/preview';
 
 // TypeScript interface for MathJax v3
 interface MathJaxWindow extends Window {
@@ -31,26 +32,8 @@ const MathPreview: React.FC<MathPreviewProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Clean content but preserve math notation
-  const cleanContentWithMath = (text: string): string => {
-    return text
-      .replace(/^#{1,6}\s+.*$/gm, '') // Remove headers
-      .replace(/!\[.*?\]\(.*?\)/g, '') // Remove images
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Convert links to text
-      .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold
-      .replace(/\*(.*?)\*/g, '$1') // Remove italic
-      .replace(/`([^`]+)`/g, '$1') // Remove inline code
-      .replace(/```[\s\S]*?```/g, '[code block]') // Replace code blocks with placeholder
-      .replace(/{{<[^>]*>}}/g, '') // Remove Hugo shortcodes
-      .replace(/\n\s*\n/g, ' ') // Replace multiple newlines with space
-      .replace(/\s+/g, ' ') // Replace multiple spaces with single space
-      .trim();
-  };
-
-  const processedContent = cleanContentWithMath(content);
-  const truncatedContent = processedContent.length > maxLength 
-    ? processedContent.substring(0, maxLength) + '...'
-    : processedContent;
+  const processedContent = cleanMarkdownPreview(content, { preserveMath: true });
+  const truncatedContent = truncatePreview(processedContent, maxLength);
 
   // Initialize and render MathJax when content changes
   useEffect(() => {

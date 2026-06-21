@@ -5,16 +5,16 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
+  - codeforces
   - ntt
   - knapsack
   - dp
   - oeis
   - number theory
-  - codeforces
 keywords:
   - ''
   - ''
-description: knapsack dp with ntt
+description: Count divisor sets with knapsack DP optimized by NTT
 showFullContent: false
 ---
 

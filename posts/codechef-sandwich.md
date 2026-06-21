@@ -5,17 +5,18 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
+  - codechef
   - combinatorics
+  - stars and bars
   - crt
   - lucas theorem
   - number theory
   - legendre's formula
   - counting
-  - codechef
 keywords:
   - ''
   - ''
-description: ''
+description: Count valid sandwich cuts using stars and bars, Lucas theorem, and CRT
 showFullContent: false
 ---
 

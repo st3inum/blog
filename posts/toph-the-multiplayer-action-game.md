@@ -5,12 +5,13 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
-  - geometry
   - toph
+  - geometry
+  - quadratic equation
 keywords:
   - ''
   - ''
-description: ''
+description: Find when one moving n-sphere becomes fully inside another
 showFullContent: false
 ---
 

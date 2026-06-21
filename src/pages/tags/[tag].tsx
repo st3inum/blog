@@ -19,6 +19,7 @@ import {
   SelectChangeEvent
 } from '@mui/material';
 import { getAllPosts, PostMeta } from '@/lib/posts';
+import { cleanMarkdownPreview, truncatePreview } from '@/lib/preview';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 
@@ -103,15 +104,11 @@ export default function TagPage({ tag, posts }: TagPageProps) {
 
   // Extract content preview from a post
   const getContentPreview = (post: PostWithContent, maxLength: number = 200): string => {
-    if (post.contentPreview) {
-      return post.contentPreview.length > maxLength 
-        ? post.contentPreview.substring(0, maxLength) + '...'
-        : post.contentPreview;
-    }
     if (post.description) {
-      return post.description.length > maxLength 
-        ? post.description.substring(0, maxLength) + '...'
-        : post.description;
+      return truncatePreview(post.description, maxLength);
+    }
+    if (post.contentPreview) {
+      return truncatePreview(post.contentPreview, maxLength);
     }
     return 'Click to read more about this post...';
   };
@@ -411,30 +408,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const { content } = matter.default(fileContents);
         
-        // Clean markdown and extract preview
-        const cleanContent = content
-          .replace(/^#{1,6}\s+.*$/gm, '') // Remove headers
-          .replace(/!\[.*?\]\(.*?\)/g, '') // Remove images
-          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Convert links to text
-          .replace(/\$\$[\s\S]*?\$\$/g, '[mathematical expression]') // Remove display math
-          .replace(/\$[^$\n]*\$/g, '[math]') // Remove inline math
-          .replace(/\\\([\s\S]*?\\\)/g, '[mathematical expression]') // Remove \(...\) math
-          .replace(/\\\[[\s\S]*?\\\]/g, '[mathematical expression]') // Remove \[...\] math
-          .replace(/\\begin\{[^}]+\}[\s\S]*?\\end\{[^}]+\}/g, '[mathematical expression]') // Remove LaTeX environments
-          .replace(/\\[a-zA-Z]+\{[^}]*\}/g, '[math notation]') // Remove LaTeX commands
-          .replace(/\\[a-zA-Z]+/g, '') // Remove simple LaTeX commands
-          .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold
-          .replace(/\*(.*?)\*/g, '$1') // Remove italic
-          .replace(/`([^`]+)`/g, '$1') // Remove inline code
-          .replace(/```[\s\S]*?```/g, '[code block]') // Replace code blocks with placeholder
-          .replace(/{{<[^>]*>}}/g, '') // Remove Hugo shortcodes
-          .replace(/\n\s*\n/g, ' ') // Replace multiple newlines with space
-          .replace(/\s+/g, ' ') // Replace multiple spaces with single space
-          .replace(/\[math\]\s*\[math\]/g, '[mathematical expressions]') // Combine adjacent math placeholders
-          .replace(/\[mathematical expression\]\s*\[mathematical expression\]/g, '[mathematical expressions]') // Combine adjacent math placeholders
-          .trim();
-        
-        const contentPreview = cleanContent.substring(0, 200);
+        const contentPreview = truncatePreview(cleanMarkdownPreview(content), 200);
         
         return {
           ...post,

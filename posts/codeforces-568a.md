@@ -5,13 +5,13 @@ author: steinum
 authorTwitter: ''
 cover: ''
 tags:
+  - codeforces
   - number theory
   - sieve
-  - codeforces
 keywords:
   - ''
   - ''
-description: ''
+description: Find the largest n where prime count is bounded by palindrome count
 showFullContent: false
 ---
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { IconButton, Tooltip, Fade } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CheckIcon from '@mui/icons-material/Check';
+import { copyTextToClipboard } from '../lib/clipboard';
 
 interface CodeCopyButtonProps {
   code: string;
@@ -12,7 +13,7 @@ const CodeCopyButton: React.FC<CodeCopyButtonProps> = ({ code }) => {
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(code);
+      await copyTextToClipboard(code);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
