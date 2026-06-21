@@ -127,4 +127,3 @@ So we can calculate $P_k(0),P_k(1),\dots,P_k(k)$ by any $O(k^2)$ way and interpo
 ## Reference:
 
 - [Codeforces 932E - Team Work](https://codeforces.com/problemset/problem/932/E)
-- [Codeforces blog comments](https://codeforces.com/blog/entry/57796)

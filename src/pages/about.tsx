@@ -36,7 +36,7 @@ export default function About() {
     <>
       <Head>
         <title>About Me | {siteConfig.title}</title>
-        <meta name="description" content="About Fahim Tajwar Saikat - Machine Learning Engineer Trainee, Software Engineer, Competitive Programmer, and Contest Coordinator" />
+        <meta name="description" content="About Fahim Tajwar Saikat - Machine Learning Engineer, Software Engineer, Competitive Programmer, and Contest Coordinator" />
         
         {/* Schema.org Person markup for better SEO */}
         <script
@@ -61,7 +61,7 @@ export default function About() {
                 "https://leetcode.com/u/steinum/",
                 "https://t.me/steinum"
               ],
-              "jobTitle": "Machine Learning Engineer Trainee",
+              "jobTitle": "Machine Learning Engineer",
               "worksFor": {
                 "@type": "Organization",
                 "name": "Huawei"
@@ -71,7 +71,7 @@ export default function About() {
                 "name": "Shahjalal University of Science and Technology",
                 "sameAs": "https://www.sust.edu/"
               },
-              "description": "Machine Learning Engineer Trainee, Software Engineer, Competitive Programmer, and Contest Coordinator",
+              "description": "Machine Learning Engineer, Software Engineer, Competitive Programmer, and Contest Coordinator",
               "email": "fahim.tajwar.saikat@gmail.com",
               "telephone": "+358449567901",
               "nationality": "Bangladeshi",
@@ -214,7 +214,7 @@ export default function About() {
           gridColumns={{ xs: '1fr', md: '1fr' }}
           items={[
             {
-              title: "Machine Learning Engineer Trainee",
+              title: "Machine Learning Engineer",
               subtitle: "Huawei",
               period: "Mar 2026 – Present | Tampere, Finland",
               description: "Working with camera research and computational imaging workflows for mobile camera pipelines, including image restoration, super-resolution, and color-transfer experimentation.",

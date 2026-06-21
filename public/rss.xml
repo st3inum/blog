@@ -5,7 +5,7 @@
   <link>https://steinum.dev</link>
   <description>Exploring mathematics, algorithms, and competitive programming with clear explanations and practical examples</description>
   <language>en</language>
-  <lastBuildDate>Sun, 21 Jun 2026 15:03:58 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 21 Jun 2026 18:26:48 GMT</lastBuildDate>
   <atom:link href="https://steinum.dev/rss.xml" rel="self" type="application/rss+xml" />
 
   <item>
@@ -119,6 +119,18 @@
     <category>miller rabin</category>
   </item>
   <item>
+    <guid>https://steinum.dev/posts/Berlekamp-Massey</guid>
+    <title>Berlekamp-Massey</title>
+    <link>https://steinum.dev/posts/Berlekamp-Massey</link>
+    <pubDate>Sat, 01 May 2021 05:27:08 GMT</pubDate>
+    <description>Find the shortest linear recurrence and calculate nth term</description>
+    <category>berlekamp massey</category>
+    <category>linear recurrence</category>
+    <category>kitamasa</category>
+    <category>dp</category>
+    <category>math</category>
+  </item>
+  <item>
     <guid>https://steinum.dev/posts/codechef-sandwich</guid>
     <title>Long Sandwich - Codechef SANDWICH</title>
     <link>https://steinum.dev/posts/codechef-sandwich</link>
@@ -196,12 +208,13 @@
     <title>Team Work - Codeforces 932E</title>
     <link>https://steinum.dev/posts/codeforces-932e</link>
     <pubDate>Fri, 23 Apr 2021 09:01:22 GMT</pubDate>
-    <description>Sum binomial-weighted powers using Stirling numbers or DP</description>
+    <description>Sum binomial-weighted powers using Stirling numbers, DP, or Lagrange interpolation</description>
     <category>codeforces</category>
     <category>combinatorics</category>
     <category>stirling numbers</category>
     <category>dp</category>
     <category>lagrange interpolation</category>
+    <category>ntt</category>
   </item>
   <item>
     <guid>https://steinum.dev/posts/codeforces-577b</guid>
