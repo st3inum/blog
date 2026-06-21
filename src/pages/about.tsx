@@ -31,6 +31,8 @@ import SkillsSection from '../components/SkillsSection';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import CollapsibleSection from '../components/CollapsibleSection';
 
+const profileImagePath = '/profile-photo.png';
+
 export default function About() {
   return (
     <>
@@ -48,7 +50,7 @@ export default function About() {
               "name": "Fahim Tajwar Saikat",
               "alternateName": "steinum",
               "url": "https://steinum.dev",
-              "image": "https://steinum.dev/profile-image.jpg",
+              "image": `https://steinum.dev${profileImagePath}`,
               "sameAs": [
                 "https://github.com/st3inum",
                 "https://linkedin.com/in/steinum",
@@ -132,12 +134,11 @@ export default function About() {
                   gap: { xs: 2, sm: 0 }
                 }}
               >
-                <Box sx={{ position: 'relative', width: { xs: 96, sm: 120 }, height: { xs: 96, sm: 120 }, flexShrink: 0, borderRadius: '50%', overflow: 'hidden', boxShadow: '0 4px 10px rgba(0,0,0,0.15)', mr: { xs: 0, sm: 2 } }}>
-                  <Box 
-                    component="div"
-                    sx={{ 
-                      width: '100%', 
-                      height: '100%', 
+                <Box sx={{ position: 'relative', width: { xs: 96, sm: 120 }, height: { xs: 96, sm: 120 }, flexShrink: 0, borderRadius: '50%', overflow: 'hidden', boxShadow: '0 4px 10px rgba(0,0,0,0.15)', mr: { xs: 0, sm: 2 }, bgcolor: '#eef2ff' }}>
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      inset: 0,
                       background: 'linear-gradient(45deg, #3f51b5 30%, #2196F3 90%)',
                       display: 'flex',
                       alignItems: 'center',
@@ -149,6 +150,22 @@ export default function About() {
                   >
                     FS
                   </Box>
+                  <Box
+                    component="img"
+                    src={profileImagePath}
+                    alt="Fahim Tajwar Saikat"
+                    onError={(event) => {
+                      event.currentTarget.style.display = 'none';
+                    }}
+                    sx={{
+                      position: 'absolute',
+                      inset: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block'
+                    }}
+                  />
                 </Box>
                 <Box sx={{ minWidth: 0, width: '100%' }}>
                   <Typography variant="h4" component="h2" gutterBottom sx={{ fontWeight: 600, fontSize: { xs: '1.85rem', sm: '2.125rem' } }}>
