@@ -1,27 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 1005;
-
-int main() {
-    ios::sync_with_stdio(false);
+int32_t main() {
+    ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n, m;
+    int n, m, ok = 0;
     cin >> n >> m;
-    if (n >= m) return cout << "YES\n", 0;
 
-    bitset<N> dp, mask;
-    for (int i = 0; i < m; i++) mask[i] = 1;
+    bitset<1003> last, nxt, reset(string(m, '1'));
+    last[0] = 1;
 
-    while (n--) {
-        long long a;
+    for (int i = 0, a; i < n; i++) {
         cin >> a;
-        int x = a % m;
-        dp |= ((dp << x) | (dp >> (m - x))) & mask;
-        dp[x] = 1;
-        if (dp[0]) return cout << "YES\n", 0;
+        a %= m;
+        nxt = ((last << a) | (last >> (m - a))) & reset;
+        if (nxt[0]) {
+            ok = 1;
+            break;
+        }
+        last |= nxt;
     }
 
-    cout << "NO\n";
+    cout << (ok ? "YES" : "NO") << '\n';
 }
