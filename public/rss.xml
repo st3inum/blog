@@ -5,7 +5,7 @@
   <link>https://steinum.dev</link>
   <description>Exploring mathematics, algorithms, and competitive programming with clear explanations and practical examples</description>
   <language>en</language>
-  <lastBuildDate>Sun, 21 Jun 2026 14:44:10 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 21 Jun 2026 15:03:58 GMT</lastBuildDate>
   <atom:link href="https://steinum.dev/rss.xml" rel="self" type="application/rss+xml" />
 
   <item>
@@ -190,6 +190,18 @@
     <category>number theory</category>
     <category>lucas theorem</category>
     <category>divide and conquer</category>
+  </item>
+  <item>
+    <guid>https://steinum.dev/posts/codeforces-932e</guid>
+    <title>Team Work - Codeforces 932E</title>
+    <link>https://steinum.dev/posts/codeforces-932e</link>
+    <pubDate>Fri, 23 Apr 2021 09:01:22 GMT</pubDate>
+    <description>Sum binomial-weighted powers using Stirling numbers or DP</description>
+    <category>codeforces</category>
+    <category>combinatorics</category>
+    <category>stirling numbers</category>
+    <category>dp</category>
+    <category>lagrange interpolation</category>
   </item>
   <item>
     <guid>https://steinum.dev/posts/codeforces-577b</guid>
