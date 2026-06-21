@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 1005;
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -11,15 +9,16 @@ int main() {
     cin >> n >> m;
     if (n >= m) return cout << "YES\n", 0;
 
-    bitset<N> dp, mask;
-    for (int i = 0; i < m; i++) mask[i] = 1;
-
+    vector<int> dp(m);
     while (n--) {
         long long a;
         cin >> a;
         int x = a % m;
-        dp |= ((dp << x) | (dp >> (m - x))) & mask;
-        dp[x] = 1;
+        auto ndp = dp;
+        ndp[x] = 1;
+        for (int r = 0; r < m; r++)
+            if (dp[r]) ndp[(r + x) % m] = 1;
+        dp = ndp;
         if (dp[0]) return cout << "YES\n", 0;
     }
 

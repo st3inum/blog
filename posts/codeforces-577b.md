@@ -47,22 +47,9 @@ $$
 
 So answer is `YES`.
 
-For $n<m$, maintain:
+For $n<m$, we can use normal subset-sum DP on modulo values in $O(nm)$.
 
-$$
-dp[r]=true
-$$
-
-if some non-empty subsequence has sum $\equiv r\pmod m$.
-
-For every $x=a_i\bmod m$:
-
-- set $dp[x]=true$
-- for every old residue $r$, set $dp[(r+x)\bmod m]=true$
-
-If at any point $dp[0]=true$, answer is `YES`.
-
-Complexity: $O(nm)$.
+{{< code language="cpp" title="Solution 1: Pigeonhole + DP" id="1" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codeforces/577b-dp.cpp">}}{{< /code >}}
 
 ## Solution 2: Bitmask DP
 
@@ -76,7 +63,7 @@ $$
 
 Here `shift(dp,x)` means circular shift modulo $m$.
 
-{{< code language="cpp" title="Modulo Sum - Codeforces 577B" id="1" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codeforces/577b.cpp">}}{{< /code >}}
+{{< code language="cpp" title="Solution 2: Bitmask DP" id="2" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codeforces/577b.cpp">}}{{< /code >}}
 
 ## Reference:
 
