@@ -5,7 +5,7 @@
   <link>https://steinum.dev</link>
   <description>Exploring mathematics, algorithms, and competitive programming with clear explanations and practical examples</description>
   <language>en</language>
-  <lastBuildDate>Sun, 21 Jun 2026 14:37:01 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 21 Jun 2026 14:44:10 GMT</lastBuildDate>
   <atom:link href="https://steinum.dev/rss.xml" rel="self" type="application/rss+xml" />
 
   <item>
@@ -199,6 +199,7 @@
     <description>Check if a non-empty subsequence sum is divisible by m</description>
     <category>codeforces</category>
     <category>dp</category>
+    <category>bitmask</category>
     <category>bitset</category>
     <category>subset sum</category>
     <category>pigeonhole principle</category>

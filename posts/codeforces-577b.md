@@ -7,6 +7,7 @@ cover: ''
 tags:
   - codeforces
   - dp
+  - bitmask
   - bitset
   - subset sum
   - pigeonhole principle
@@ -22,9 +23,11 @@ showFullContent: false
 
 Given $n$ numbers and an integer $m$, check if we can choose a non-empty subsequence such that its sum is divisible by $m$.
 
-## Solution 1: Pigeonhole Principle
+## Solution 1: Pigeonhole + DP
 
-First look at prefix sums:
+First, handle the large case using pigeonhole principle.
+
+Look at prefix sums:
 
 $$
 s_i = (a_1+a_2+\dots+a_i)\bmod m
@@ -58,9 +61,11 @@ $$
 
 we can immediately print `YES`.
 
-## Solution 2: Normal DP
+Now we only need DP for:
 
-Now we only need to handle $n<m$.
+$$
+n<m
+$$
 
 Maintain:
 
@@ -87,9 +92,16 @@ If at any point $dp[0]=true$, answer is `YES`.
 
 Complexity is $O(nm)$, and because $n<m$, it is at most about $10^6$.
 
-## Solution 3: Bitset DP
+So the full idea is:
 
-The same DP can be written more compactly with a bitset.
+- if $n\ge m$, print `YES` by pigeonhole principle
+- otherwise run normal subset-sum DP on residues
+- if residue $0$ becomes possible, print `YES`
+- otherwise print `NO`
+
+## Solution 2: Bitmask DP
+
+The same DP can be written more compactly using a bitmask/bitset.
 
 Here bit $r$ means:
 
@@ -107,10 +119,10 @@ $$
 
 As $m\le 1000$, this is compact and fast.
 
-The full solution is:
+The logic stays exactly the same:
 
 - if $n\ge m$, print `YES`
-- otherwise run DP/bitset DP
+- otherwise run bitmask DP
 - if residue $0$ becomes possible, print `YES`
 - otherwise print `NO`
 
