@@ -22,9 +22,9 @@ showFullContent: false
 
 Given $n$ numbers and an integer $m$, check if we can choose a non-empty subsequence such that its sum is divisible by $m$.
 
-## Pigeonhole:
+## Solution 1: Pigeonhole Principle
 
-Let prefix sums be:
+First look at prefix sums:
 
 $$
 s_i = (a_1+a_2+\dots+a_i)\bmod m
@@ -32,7 +32,9 @@ $$
 
 There are $n+1$ prefix sums if we include $s_0=0$.
 
-If $n\ge m$, then by pigeonhole principle, two prefix sums must have same residue modulo $m$.
+There are only $m$ possible residues: $0,1,\dots,m-1$.
+
+So if $n\ge m$, then by pigeonhole principle, two prefix sums must have the same residue modulo $m$.
 
 Suppose:
 
@@ -48,7 +50,15 @@ $$
 
 So we already have a non-empty segment, and a segment is also a subsequence. Answer is `YES`.
 
-## DP:
+So for:
+
+$$
+n\ge m
+$$
+
+we can immediately print `YES`.
+
+## Solution 2: Normal DP
 
 Now we only need to handle $n<m$.
 
@@ -60,7 +70,15 @@ $$
 
 if some non-empty subsequence has sum $\equiv r\pmod m$.
 
-For every value $x=a_i\bmod m$:
+Initially all values are false.
+
+For every number:
+
+$$
+x=a_i\bmod m
+$$
+
+we do two things:
 
 - take only $x$: set $dp[x]=true$
 - add $x$ to all previous sums: $dp[(r+x)\bmod m]=true$
@@ -69,9 +87,15 @@ If at any point $dp[0]=true$, answer is `YES`.
 
 Complexity is $O(nm)$, and because $n<m$, it is at most about $10^6$.
 
-## Bitset version:
+## Solution 3: Bitset DP
 
-We can store all residues in a bitset.
+The same DP can be written more compactly with a bitset.
+
+Here bit $r$ means:
+
+$$
+dp[r]=true
+$$
 
 If bit $r$ is on, then after adding $x$, bit $(r+x)\bmod m$ should be on.
 
@@ -81,7 +105,14 @@ $$
 dp = dp \cup shift(dp,x) \cup \{x\}
 $$
 
-As $m\le 1000$, this is very compact and fast.
+As $m\le 1000$, this is compact and fast.
+
+The full solution is:
+
+- if $n\ge m$, print `YES`
+- otherwise run DP/bitset DP
+- if residue $0$ becomes possible, print `YES`
+- otherwise print `NO`
 
 {{< code language="cpp" title="Modulo Sum - Codeforces 577B" id="1" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/codeforces/577b.cpp">}}{{< /code >}}
 
