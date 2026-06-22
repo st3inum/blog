@@ -14,198 +14,229 @@ keywords:
   - Berlekamp Massey
   - linear recurrence
   - Kitamasa
-description: Find the shortest linear recurrence and calculate nth term
+description: Shortest linear recurrence with Berlekamp-Massey and nth term with Kitamasa
 showFullContent: false
 draft: false
 ---
 
-Berlekamp-Massey finds the shortest linear recurrence from first terms of a sequence.
+Berlekamp-Massey finds the shortest linear recurrence from first few terms of a sequence.
 
-All calculations are over a field, usually modulo a prime.
+In contests, the common pattern is:
 
-## Definition 1: Linear Recurrence
+$$
+\text{small DP values}\longrightarrow\text{recurrence}\longrightarrow\text{large index}
+$$
 
-A sequence $a_0,a_1,a_2,\dots$ has a recurrence of length $L$ if:
+All formulas below are over a field. In code, this usually means modulo a prime.
+
+## History:
+
+Berlekamp introduced the algorithm while working on BCH error-correcting codes.
+
+Massey later described the same idea through the shortest linear feedback shift-register.
+
+The coding theory story is different, but the contest version is simple: guess the smallest recurrence consistent with known values.
+
+## Problem:
+
+Given:
+
+$$
+a_0,a_1,\dots,a_{N-1}
+$$
+
+Find the minimum $L$ and coefficients $c_i$ such that:
 
 $$
 a_n=\sum_{i=1}^{L}{c_i a_{n-i}}
 $$
 
-for every $n\ge L$.
+for every valid $n$ in the known prefix.
 
-The goal is to find minimum possible $L$.
+After that, calculate $a_k$ for large $k$.
 
-## Definition 2: Connection Polynomial
+## Brute Force:
 
-For a recurrence:
-
-$$
-a_n=\sum_{i=1}^{L}{c_i a_{n-i}}
-$$
-
-define:
+For a fixed $L$, the unknowns are:
 
 $$
-C(x)=1+\sum_{i=1}^{L}{C_i x^i}
+c_1,c_2,\dots,c_L
 $$
 
-where:
+For each $n\ge L$:
 
 $$
-C_0=1,\quad C_i=-c_i
+\sum_{i=1}^{L}{c_i a_{n-i}}=a_n
 $$
 
-The recurrence condition becomes:
+Try $L=1,2,3,\dots$ and solve linear equations.
+
+This is valid, but too slow.
+
+Berlekamp-Massey performs this search implicitly in $O(N^2)$.
+
+## Definition:
+
+A connection polynomial is:
+
+$$
+C(x)=\sum_{i=0}^{L}{C_i x^i}
+$$
+
+with $C_0=1$.
+
+It represents:
 
 $$
 \sum_{i=0}^{L}{C_i a_{n-i}}=0
 $$
 
-Side note:
-
-$C(x)$ is also called the connection polynomial.
-
-BM actually finds $C(x)$ first, then returns $c_i=-C_i$.
-
-## Definition 3: Discrepancy
-
-For a candidate polynomial $C$ at index $n$:
+The recurrence coefficients are:
 
 $$
-d_n(C)=\sum_{i=0}^{L}{C_i a_{n-i}}
+c_i=-C_i
 $$
 
-If $d_n(C)=0$, the candidate recurrence is valid at $a_n$.
+## Lemma 1:
 
-If $d_n(C)\ne0$, it fails at $a_n$.
-
-## Lemma 1: Correction Step
-
-Current polynomial: $C$.
-
-Current discrepancy:
+For a fixed $n$, define the discrepancy:
 
 $$
-d=d_n(C)
+d_n=\sum_{i=0}^{L}{C_i a_{n-i}}
 $$
 
-Old polynomial: $B$.
+$C(x)$ is valid at position $n$ iff $d_n=0$.
 
-Old non-zero discrepancy: $b$.
+Proof:
 
-Distance between those two discrepancy positions: $m$.
+The recurrence condition is exactly:
 
-Define:
+$$
+\sum_{i=0}^{L}{C_i a_{n-i}}=0
+$$
+
+So the left side is the error of $C(x)$ at $n$.
+
+## Lemma 2:
+
+Assume a previous polynomial $B(x)$ has discrepancy $b\ne0$ at an old failing position.
+
+Let $m$ be the distance from that old position to the current position $n$.
+
+If current discrepancy is $d\ne0$, define:
 
 $$
 C'(x)=C(x)-\frac{d}{b}x^mB(x)
 $$
 
-Claim:
+At position $n$:
 
 $$
-d_n(C')=0
+\sum_i{C'_i a_{n-i}}
+=d-\frac{d}{b}b
+=0
 $$
 
-**Proof:**
+The shift $x^m$ makes the correction start at the current failure, so previously fixed positions remain fixed.
 
-The shifted polynomial $x^mB(x)$ contributes exactly $b$ at index $n$.
+This is the main update of BM.
 
-Therefore:
+## Lemma 3:
 
-$$
-d_n(C')=d-\frac{d}{b}b=0
-$$
+Let current recurrence length be $L$ and the current failing index be $n$.
 
-## Lemma 2: Length Update
-
-After a non-zero discrepancy at index $n$, the new length is:
+After applying the correction, the new length is:
 
 $$
 L'=\max(L,n+1-L)
 $$
 
-Therefore:
+So the length grows only when:
 
 $$
-L'=
-\begin{cases}
-L, & 2L>n \\
-n+1-L, & 2L\le n
-\end{cases}
+2L\le n
 $$
 
-**Proof:**
-
-From Lemma 1:
+In that case:
 
 $$
-C'(x)=C(x)-\frac{d}{b}x^mB(x)
+L\gets n+1-L
 $$
 
-So:
+The old polynomial becomes the new backup $B$.
 
-$$
-\deg C'\le \max(\deg C,m+\deg B)
-$$
+Side note:
 
-BM keeps the invariant:
+The backup is the last polynomial that was strong enough to increase the lower bound on the answer.
 
-$$
-m+\deg B=n+1-L
-$$
+## Theorem:
 
-Hence:
+After processing $a_0,a_1,\dots,a_{N-1}$, Berlekamp-Massey returns the shortest valid connection polynomial for this prefix.
 
-$$
-\deg C'\le \max(L,n+1-L)
-$$
+Proof sketch:
 
-A non-zero discrepancy means the current length $L$ is not enough for the prefix ending at $n$ when $2L\le n$.
+- Lemma 1 tells whether the current polynomial fails.
+- Lemma 2 fixes a failure using one old failure with known non-zero discrepancy.
+- Lemma 3 updates the minimum possible length exactly when the prefix proves the old length impossible.
+- The algorithm always keeps a valid polynomial for the processed prefix.
+- Every length increase is forced by a failure, so the final length is minimal.
 
-Thus the new minimal possible length is $n+1-L$.
+## Algorithm:
 
-## Theorem 1: Berlekamp-Massey
+Maintain:
 
-BM returns the shortest recurrence for the given prefix.
+- $C$ = current connection polynomial
+- $B$ = backup polynomial
+- $L$ = current length
+- $b$ = discrepancy of $B$
+- $m$ = distance from backup failure
 
-**Proof:**
+For each index $n$:
 
-BM scans terms from left to right.
-
-At every index $n$:
-
-- if $d_n(C)=0$, current recurrence already matches the prefix
-- if $d_n(C)\ne0$, Lemma 1 fixes the current term
-- Lemma 2 updates the length only when a longer recurrence is forced
-
-Therefore after processing all terms, $C$ is valid for the whole prefix and has minimum length.
+- calculate $d=\sum_i{C_i a_{n-i}}$
+- if $d=0$, increase $m$
+- otherwise apply $C(x)-\frac{d}{b}x^mB(x)$
+- if $2L\le n$, update $L,B,b,m$
 
 Complexity:
+
+$$
+O(N^2)
+$$
+
+If the final recurrence length is $L$:
 
 $$
 O(NL)
 $$
 
-Usually it is written as $O(N^2)$.
+## How many terms?
 
-Here $N$ is number of known terms and $L$ is final recurrence length.
+If the real recurrence has length $L$, then $2L$ correct terms are enough in theory.
 
-## Theorem 2: N-th Term
+For black-box DP:
 
-After BM, recurrence is:
+- generate more than $2L$ terms
+- run BM on a prefix
+- verify the recurrence on unused terms
+
+Extra terms are for confidence, not for BM itself.
+
+## N-th Term:
+
+After BM:
 
 $$
 a_n=\sum_{i=1}^{L}{c_i a_{n-i}}
 $$
 
-Define:
+Characteristic polynomial:
 
 $$
 Q(x)=x^L-\sum_{i=1}^{L}{c_i x^{L-i}}
 $$
 
-In modulo $Q(x)$:
+Since $Q(x)=0$:
 
 $$
 x^L=\sum_{i=1}^{L}{c_i x^{L-i}}
@@ -214,104 +245,50 @@ $$
 Calculate:
 
 $$
-x^n\bmod Q(x)=\sum_{i=0}^{L-1}{t_i x^i}
+x^k\bmod Q(x)=\sum_{i=0}^{L-1}{t_i x^i}
 $$
 
-Result:
+So:
 
 $$
-a_n=\sum_{i=0}^{L-1}{t_i a_i}
-$$
-
-**Proof:**
-
-The polynomial identity for $x^L$ has the same coefficients as the recurrence.
-
-Reducing $x^n$ modulo $Q(x)$ applies the same transition as the sequence.
-
-The remaining basis terms are:
-
-$$
-1,x,x^2,\dots,x^{L-1}
-$$
-
-Their sequence values are:
-
-$$
-a_0,a_1,a_2,\dots,a_{L-1}
-$$
-
-Hence:
-
-$$
-a_n=\sum_{i=0}^{L-1}{t_i a_i}
+a_k=\sum_{i=0}^{L-1}{t_i a_i}
 $$
 
 This is Kitamasa.
 
-Complexity:
+Naive polynomial multiplication gives:
 
 $$
-O(L^2\log n)
+O(L^2\log k)
 $$
 
-## Corollary: Number of Terms
+Matrix exponentiation would be:
 
-If the true recurrence length is $L$, then $2L$ correct terms are enough for BM.
+$$
+O(L^3\log k)
+$$
 
-For black-box DP:
+## Matrix DP:
 
-- generate many prefix terms
-- run BM on first part
-- verify the recurrence on unused terms
-
-Side note:
-
-The extra terms are only for verification.
-
-They are not required by BM after the recurrence is already determined.
-
-## Theorem 3: Matrix DP
-
-Transition:
+For a linear transition:
 
 $$
 v_{n+1}=Av_n
 $$
 
-where $A$ is a $D\times D$ matrix.
+where $A$ is a $D\times D$ matrix, Cayley-Hamilton says every coordinate of $v_n$ satisfies a linear recurrence of length at most $D$.
 
-Every coordinate of $v_n$ satisfies a linear recurrence of length at most $D$.
+Contest use:
 
-**Proof:**
+- generate several values by normal DP
+- run Berlekamp-Massey
+- calculate the far term by Kitamasa
 
-By Cayley-Hamilton:
-
-$$
-P_A(A)=0
-$$
-
-where $P_A$ is the characteristic polynomial of $A$ and $\deg P_A=D$.
-
-Multiplying by $v_n$:
-
-$$
-P_A(A)v_n=0
-$$
-
-So each coordinate of $v_n$ follows the recurrence given by $P_A$.
-
-This means:
-
-- generate first values by normal DP
-- run BM
-- use Kitamasa for the far term
-
-Useful when the transition matrix is large, but the final recurrence is small.
+Sometimes the real recurrence is much shorter than the matrix size.
 
 ## Code:
 
-`linear_rec(s,n)` returns $a_n$ from enough first terms in `s`.
+`linear_rec(s,k)` returns $a_k$ from enough first terms in `s`.
 
 {{< code language="cpp" title="Berlekamp-Massey" id="1" expand="Show" collapse="Hide" isCollapsed="false" codelink="https://raw.githubusercontent.com/st3inum/blog/master/codes/berlekamp-massey.cpp">}}{{< /code >}}
 
